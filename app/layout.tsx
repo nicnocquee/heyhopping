@@ -1,7 +1,8 @@
 import { GeistSans } from 'geist/font/sans'
 import './globals.css'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import { CSPostHogProvider } from '@/app/analytics'
+import { CSPostHogProvider, CookieBanner } from '@/app/analytics'
+import { Toaster } from '@/components/ui/sonner'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -20,6 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <TooltipProvider>
           <body className="bg-background text-foreground">
             <main className="flex min-h-screen flex-col items-center">{children}</main>
+            <CookieBanner />
+            <Toaster />
           </body>
         </TooltipProvider>
       </CSPostHogProvider>
