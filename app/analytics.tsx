@@ -24,7 +24,7 @@ export function cookieConsentGiven() {
 }
 
 export function CookieBanner() {
-  const [consentGiven, setConsentGiven] = useState<string | null>('undecided')
+  const [consentGiven, setConsentGiven] = useState<string | null>('')
   const posthog = usePostHog()
 
   useEffect(() => {
