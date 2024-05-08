@@ -24,7 +24,7 @@ export function cookieConsentGiven() {
 }
 
 export function CookieBanner() {
-  const [consentGiven, setConsentGiven] = useState<string | null>('')
+  const [consentGiven, setConsentGiven] = useState<string | null>('undecided')
   const posthog = usePostHog()
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export function CookieBanner() {
     if (consentGiven !== '') {
       posthog.set_config({ persistence: consentGiven === 'yes' ? 'localStorage+cookie' : 'memory' })
     }
-  }, [consentGiven])
+  }, [consentGiven, posthog])
 
   const handleAcceptCookies = () => {
     localStorage.setItem('cookie_consent', 'yes')
@@ -52,10 +52,10 @@ export function CookieBanner() {
   return (
     <div>
       {consentGiven === 'undecided' && (
-        <div className="absolute bottom-0 w-full space-y-4 border-t border-t-foreground/10 bg-background p-4 text-center text-sm">
+        <div className="fixed bottom-0 w-full space-y-4 border-t border-t-foreground/10 bg-background p-4 text-center text-sm">
           <p>
-            Hey, we use cookies to see how you use our stuff and make it better. Can you cool with
-            that and let us use 'em?
+            Hey, I use cookies to see how you use the website and make it better. Can you cool with
+            that and let me use 'em?
           </p>
           <Button variant={'secondary'} onClick={handleAcceptCookies}>
             Accept

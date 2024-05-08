@@ -17,15 +17,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <CSPostHogProvider>
-        <TooltipProvider>
-          <body className="bg-background text-foreground">
+      <body className="bg-background text-foreground">
+        <Toaster />
+        <CSPostHogProvider>
+          <TooltipProvider>
             <main className="flex min-h-screen flex-col items-center">{children}</main>
-            <CookieBanner />
-            <Toaster />
-          </body>
-        </TooltipProvider>
-      </CSPostHogProvider>
+          </TooltipProvider>
+          <CookieBanner />
+        </CSPostHogProvider>
+      </body>
     </html>
   )
 }
