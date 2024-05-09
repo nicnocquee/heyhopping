@@ -1,13 +1,15 @@
-import AuthButton from '../components/auth-button'
-import Header from '@/components/header'
+import Header, { HeaderChild } from '@/components/header'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
 import Heyhopping1 from '@/public/heyhopping-4.webp'
 import Heyhopping2 from '@/public/heyhopping-2.jpg.webp'
 import Heyhopping3 from '@/public/heyhopping-3.jpg.webp'
+import PeopleLaugh from '@/public/people-laugh.jpg.webp'
+import Hero from '@/public/hero.webp'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { CalendarClock, Users, CircleCheckBig } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -59,26 +61,27 @@ export const metadata: Metadata = {
 export default async function Index() {
   return (
     <div className="flex w-full flex-1 flex-col items-center">
-      <nav className="flex h-16 w-full justify-center border-b border-b-foreground/10">
-        <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
-          <Image alt="Heyhopping" src={HeyhoppingLogo} width={50} height={50} />
-          <Link
-            href="/comingsoon"
-            className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 no-underline"
-          >
-            Get Started
-          </Link>
-        </div>
-      </nav>
-
-      <Header />
+      <Header image={Hero} imageContainerClassName="h-[300px] sm:h-2/3">
+        <nav className="absolute top-0 z-10 flex h-16 w-full justify-center border-b border-b-foreground/10 bg-transparent">
+          <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
+            <Image alt="Heyhopping" src={HeyhoppingLogo} width={40} height={40} />
+            <Link
+              href="/comingsoon"
+              className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 font-semibold text-white no-underline"
+            >
+              Get Started
+            </Link>
+          </div>
+        </nav>
+        <HeaderChild />
+      </Header>
 
       <div className="flex w-full flex-1 flex-col gap-20 duration-500 fade-in zoom-in">
         <main className="flex w-full flex-1 flex-col items-stretch">
-          <section className="w-full bg-yellow-300 px-4 py-28 sm:px-0">
+          <section className="w-full bg-yellow-300 px-4 py-12 sm:px-0 sm:py-28">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-4">
-              <div className="space-y-8 pr-10 text-lg sm:col-span-2 sm:text-2xl">
-                <h2 className="mb-4 text-2xl font-bold sm:text-7xl">
+              <div className="space-y-8 text-lg sm:col-span-2 sm:pr-10 sm:text-2xl">
+                <h2 className="mb-4 text-5xl font-bold sm:text-7xl">
                   More Connection, Less Screen Time
                 </h2>
                 <p className="text-lg sm:text-xl">
@@ -112,8 +115,34 @@ export default async function Index() {
           </section>
 
           <section className="w-full bg-white">
-            <div className="mx-auto max-w-6xl space-y-8 py-20 text-center text-slate-600">
-              <p className="text-3xl">
+            <div className="mx-auto max-w-6xl space-y-12 px-4 py-20 text-center text-slate-600 sm:px-0">
+              <h2 className="mb-4 text-2xl font-bold sm:text-7xl">How it works</h2>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                {[
+                  [
+                    <CalendarClock width={60} height={60} />,
+                    'Pick a Spot and Time',
+                    "Fancy checking out that new cafe everyone's talking about? Or maybe there's a cool art show or a live gig you don't want to miss? Start by setting up where and when you wanna go.",
+                  ],
+                  [
+                    <Users width={60} height={60} />,
+                    'Find Your Crowd',
+                    'Hang tight while other Heyhopping folks who dig the same stuff as you hop on board your plan.',
+                  ],
+                  [
+                    <CircleCheckBig width={60} height={60} />,
+                    'Choose Your Adventure Buddy',
+                    "Scroll through the profiles of interested peeps and pick who you'd like to hang out with. It's that easy!",
+                  ],
+                ].map(([Icon, title, description], index) => (
+                  <div key={index} className="flex flex-col items-center space-y-4">
+                    {Icon}
+                    <p className="text-xl font-semibold">{title}</p>
+                    <p>{description}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mx-auto max-w-md text-2xl italic">
                 Heyhopping simplifies meeting up so you can get to know each other in person, right
                 away.
               </p>
@@ -189,8 +218,8 @@ export default async function Index() {
 
           <section className="w-full bg-yellow-300 px-4 py-28 sm:px-0">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-4">
-              <div className="space-y-8 pr-10 text-2xl sm:col-span-2">
-                <h2 className="mb-4 text-4xl font-bold sm:text-7xl">More Than Just Dates</h2>
+              <div className="space-y-8 text-2xl sm:col-span-2 sm:pr-10">
+                <h2 className="mb-4 text-5xl font-bold sm:text-7xl">More Than Just Dates</h2>
                 <p className="text-lg sm:text-xl">
                   Heyhopping is not just another dating app. It's a platform for anyone interested
                   in making new friends, exploring shared interests, or simply enjoying company at
@@ -226,12 +255,14 @@ export default async function Index() {
             </div>
           </section>
 
-          <section className="w-full bg-white">
-            <div className="mx-auto flex max-w-6xl flex-col items-center justify-center space-y-8 py-20 text-center text-slate-600">
-              <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
-              <GettingStarted />
-            </div>
-          </section>
+          <Header image={PeopleLaugh} imageContainerClassName="h-[300px] sm:h-2/3">
+            <Image
+              alt="Heyhopping"
+              src={HeyhoppingLogo}
+              className="h-32 w-32 object-contain sm:h-[200px] sm:w-[200px]"
+            />
+            <GettingStarted />
+          </Header>
         </main>
       </div>
 
