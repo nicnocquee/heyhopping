@@ -14,8 +14,6 @@ export const signUp = async (formData: { email: string; recaptchaToken: string }
   const { email, recaptchaToken } = formData
   const password = Math.random().toString(36).slice(-8)
 
-  console.log(email, recaptchaToken, password)
-
   if (!recaptchaToken) {
     return {
       error: { message: `Recaptcha is required. Please refresh the page and try again.`, email },
@@ -46,7 +44,7 @@ export const signUp = async (formData: { email: string; recaptchaToken: string }
     email,
     password,
     options: {
-      emailRedirectTo: `${origin}/auth/callback`,
+      emailRedirectTo: `${origin}/comingsoon/complete`,
     },
   })
 
