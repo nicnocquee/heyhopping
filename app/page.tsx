@@ -6,7 +6,6 @@ import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
 import Heyhopping1 from '@/public/heyhopping-4.webp'
 import Heyhopping2 from '@/public/heyhopping-2.jpg.webp'
 import Heyhopping3 from '@/public/heyhopping-3.jpg.webp'
-import HeyhoppingOG from '@/public/screenshots/index.webp'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
     url: 'https://www.heyhopping.com',
     images: [
       {
-        url: HeyhoppingOG.src,
+        url: `https://www.heyhopping.com/screenshots/index.webp`,
         width: 1200,
         height: 630,
         alt: 'Heyhopping',
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
       'Heyhopping has sped up the process of finding new people and meeting new people. Choose where and when, then pick a company!',
     images: [
       {
-        url: HeyhoppingOG.src,
+        url: `https://www.heyhopping.com/screenshots/index.webp`,
         width: 1200,
         height: 630,
         alt: 'Heyhopping',
