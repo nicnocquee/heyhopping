@@ -7,6 +7,7 @@ import Heyhopping1 from '@/public/heyhopping-4.webp'
 import Heyhopping2 from '@/public/heyhopping-2.jpg.webp'
 import Heyhopping3 from '@/public/heyhopping-3.jpg.webp'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -61,7 +62,12 @@ export default async function Index() {
       <nav className="flex h-16 w-full justify-center border-b border-b-foreground/10">
         <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
           <Image alt="Heyhopping" src={HeyhoppingLogo} width={50} height={50} />
-          <AuthButton />
+          <Link
+            href="/comingsoon"
+            className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 no-underline"
+          >
+            Get Started
+          </Link>
         </div>
       </nav>
 
@@ -111,7 +117,7 @@ export default async function Index() {
                 Heyhopping simplifies meeting up so you can get to know each other in person, right
                 away.
               </p>
-              <Button className="self-center px-6 py-8 text-2xl">Get Started</Button>
+              <GettingStarted />
             </div>
           </section>
 
@@ -144,9 +150,7 @@ export default async function Index() {
                 This common ground eases the initial conversation, allowing you to focus on enjoying
                 the experience and making meaningful connections.
               </p>
-              <Button variant={'outline'} className="bg-yellow-400 px-6 py-8 text-xl text-black">
-                Get Started
-              </Button>
+              <GettingStarted />
             </div>
           </section>
 
@@ -178,12 +182,7 @@ export default async function Index() {
                   This common ground eases the initial conversation, allowing you to focus on
                   enjoying the experience and making meaningful connections.
                 </p>
-                <Button
-                  variant={'outline'}
-                  className="self-end bg-yellow-400 px-6 py-8 text-xl text-black"
-                >
-                  Get Started
-                </Button>
+                <GettingStarted />
               </div>
             </div>
           </section>
@@ -230,7 +229,7 @@ export default async function Index() {
           <section className="w-full bg-white">
             <div className="mx-auto flex max-w-6xl flex-col items-center justify-center space-y-8 py-20 text-center text-slate-600">
               <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
-              <Button className="self-center px-6 py-8 text-2xl">Get Started</Button>
+              <GettingStarted />
             </div>
           </section>
         </main>
@@ -243,5 +242,13 @@ export default async function Index() {
         </p>
       </footer>
     </div>
+  )
+}
+
+const GettingStarted = () => {
+  return (
+    <Button asChild className="self-center px-6 py-8 text-2xl">
+      <Link href="/comingsoon">Get Started</Link>
+    </Button>
   )
 }

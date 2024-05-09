@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
@@ -41,6 +41,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
+    "@tanstack/react-query": "^5.35.1",
     "autoprefixer": "10.4.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -53,6 +54,7 @@
     "input-otp": "^1.2.4",
     "lucide-react": "^0.378.0",
     "next": "latest",
+    "next-recaptcha-v3": "^1.4.1",
     "next-themes": "^0.3.0",
     "postcss": "8.4.33",
     "postgres": "^3.4.4",
