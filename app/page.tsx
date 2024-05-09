@@ -120,19 +120,19 @@ export default async function Index() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {[
                   [
-                    <CalendarClock width={60} height={60} />,
+                    <CalendarClock key={0} width={60} height={60} />,
                     'Pick a Spot and Time',
                     "Fancy checking out that new cafe everyone's talking about? Or maybe there's a cool art show or a live gig you don't want to miss? Start by setting up where and when you wanna go.",
                   ],
                   [
-                    <Users width={60} height={60} />,
+                    <Users key={1} width={60} height={60} />,
                     'Find Your Crowd',
                     'Hang tight while other Heyhopping folks who dig the same stuff as you hop on board your plan.',
                   ],
                   [
-                    <CircleCheckBig width={60} height={60} />,
+                    <CircleCheckBig key={2} width={60} height={60} />,
                     'Choose Your Adventure Buddy',
-                    "Scroll through the profiles of interested peeps and pick who you'd like to hang out with. It's that easy!",
+                    "Scroll through the profiles of interested peeps and select your plus-one. No group coordination needed — it's just the two of you, so it's all chill and no fuss.",
                   ],
                 ].map(([Icon, title, description], index) => (
                   <div key={index} className="flex flex-col items-center space-y-4">
