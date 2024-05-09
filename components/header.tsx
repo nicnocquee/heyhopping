@@ -6,6 +6,8 @@ export default function Header() {
     <div className="flex w-full flex-col items-center gap-16">
       <div className="relative flex h-2/3 w-full">
         <Image
+          loading="eager"
+          priority
           alt="Heyhopping"
           className="z-0 h-full w-full brightness-50"
           src={Hero}
