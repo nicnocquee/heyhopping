@@ -28,10 +28,10 @@ export default async function AuthButton() {
     </div>
   ) : (
     <Link
-      href="/login"
+      href="/comingsoon"
       className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 no-underline"
     >
-      Login
+      Get Started
     </Link>
   )
 }
