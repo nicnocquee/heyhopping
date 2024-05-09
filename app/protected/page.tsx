@@ -23,14 +23,14 @@ export default async function ProtectedPage() {
           This is a protected page that you can only see as an authenticated user
         </div>
         <nav className="flex h-16 w-full justify-center border-b border-b-foreground/10">
-          <div className="flex w-full max-w-4xl items-center justify-between p-3 text-sm">
+          <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
             <DeployButton />
             <AuthButton />
           </div>
         </nav>
       </div>
 
-      <div className="flex max-w-4xl flex-1 flex-col gap-20 px-3 animate-in">
+      <div className="flex max-w-6xl flex-1 flex-col gap-20 px-3 animate-in">
         <Header />
         <main className="flex flex-1 flex-col gap-6">
           <h2 className="mb-4 text-4xl font-bold">Next steps</h2>
