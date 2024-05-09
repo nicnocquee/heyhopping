@@ -6,4 +6,8 @@ dotenv.config()
 export default {
   schema: path.join(__dirname, 'schema.ts'),
   out: path.join(__dirname, 'generated'),
+  driver: 'pg',
+  dbCredentials: {
+    connectionString: process.env.DATABASE_URL!,
+  },
 } satisfies Config

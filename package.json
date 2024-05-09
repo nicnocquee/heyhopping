@@ -6,7 +6,8 @@
     "start": "next start",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "db:generate": "drizzle-kit generate:pg  --config ./database/drizzle.config.ts",
-    "db:migrate": "dotenvx run -f .env.local -- tsx ./database/migration.ts"
+    "db:migrate": "dotenvx run -f .env.local -- tsx ./database/migration.ts",
+    "db:pull": "dotenvx run -f .env.local -- drizzle-kit introspect:pg --config ./database/drizzle.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
