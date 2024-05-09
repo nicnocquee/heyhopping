@@ -16,12 +16,12 @@ export default function Header() {
           }}
         />
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center space-y-4 text-center text-yellow-400">
-          <h1 className="text-8xl font-extrabold">
+          <h1 className="text-xl font-extrabold sm:text-8xl">
             Decide the venue
             <br />
             then pick a company
           </h1>
-          <p className="mx-auto max-w-xl text-center text-2xl !leading-tight">
+          <p className="text-md mx-auto max-w-xl text-center !leading-tight sm:text-2xl">
             From restaurants to concerts, make every outing memorable by meeting new friends!
           </p>
         </div>
