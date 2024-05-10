@@ -7,7 +7,7 @@ import { usePostHog } from 'posthog-js/react'
 import { useEffect, useState } from 'react'
 import { env } from './env'
 
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && env.NEXT_PUBLIC_POSTHOG_KEY) {
   posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: env.NEXT_PUBLIC_POSTHOG_HOST,
     persistence: cookieConsentGiven() === 'yes' ? 'localStorage+cookie' : 'memory',

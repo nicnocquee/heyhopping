@@ -5,17 +5,17 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
-    VERCEL_URL: z.string(),
+    VERCEL_URL: z.string().optional(),
     DATABASE_URL: z.string().min(1),
-    RECAPTCHA_SECRET_KEY: z.string(),
+    RECAPTCHA_SECRET_KEY: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_SUPABASE_URL: z.string().min(1),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
-    NEXT_PUBLIC_POSTHOG_KEY: z.string(),
-    NEXT_PUBLIC_POSTHOG_HOST: z.string(),
-    NEXT_PUBLIC_BASE_URL: z.string(),
-    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string(),
+    NEXT_PUBLIC_POSTHOG_KEY: z.string().optional(),
+    NEXT_PUBLIC_POSTHOG_HOST: z.string().optional(),
+    NEXT_PUBLIC_BASE_URL: z.string().optional(),
+    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().optional(),
   },
   experimental__runtimeEnv: {
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
