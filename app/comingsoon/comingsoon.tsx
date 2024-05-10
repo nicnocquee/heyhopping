@@ -12,21 +12,17 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQueryClient,
-  useMutation,
-} from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider, useMutation } from '@tanstack/react-query'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { SignUpResult } from './action'
+import { env } from '@/app/env'
 
 const queryClient = new QueryClient()
 
 export default function ComingSoonContainer({ city }: { city: string }) {
   return (
-    <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+    <ReCaptchaProvider reCaptchaKey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <QueryClientProvider client={queryClient}>
         <ComingSoon city={city} />
       </QueryClientProvider>

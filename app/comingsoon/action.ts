@@ -1,5 +1,6 @@
 import { headers } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
+import { env } from '@/app/env'
 
 export type SignUpResult = {
   error: {
@@ -26,7 +27,7 @@ export const signUp = async (formData: { email: string; recaptchaToken: string }
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+    body: `secret=${env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
   })
 
   const recaptchaData = await recaptchaResponse.json()
