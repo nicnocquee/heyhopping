@@ -34,8 +34,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return acc
   }, {} as any)
 
-  console.log(grouped)
-
   Object.keys(grouped).forEach((key) => {
     const item = grouped[key]
     pages.push(item)
