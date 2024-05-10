@@ -29,6 +29,30 @@ export async function getCitiesByCountry(countryName: string): Promise<string[]>
   return cities
 }
 
+export async function getCountry(countryCode: string): Promise<{ name: string; code: string }> {
+  const filename = path.resolve(process.cwd(), 'public', 'countries.csv')
+  const country: { name: string; code: string } = { name: '', code: '' }
+
+  const parser = parse({
+    columns: true,
+    skip_empty_lines: true,
+  })
+
+  parser.on('readable', function () {
+    let record
+    while (null !== (record = parser.read())) {
+      if (record['alpha-2'].toLowerCase() === countryCode.toLowerCase()) {
+        country.name = record.name
+        country.code = record['alpha-2']
+      }
+    }
+  })
+
+  await pipelineAsync(createReadStream(filename), parser)
+
+  return country
+}
+
 // // Usage example
 // const filename = 'path/to/your/file.csv';
 // const countryName = 'United Arab Emirates';

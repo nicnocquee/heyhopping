@@ -1,32 +1,11 @@
 import { getCitiesByCountry } from '@/utils/search-cities'
-
-const supportedCountries = [
-  {
-    code: 'ch',
-    name: 'Switzerland',
-    languages: ['de', 'fr', 'it', 'en'],
-  },
-]
-
-const findSupportedCountry = (countryCode: string) =>
-  supportedCountries.find((country) => country.code.toLowerCase() === countryCode.toLowerCase())
-
-const encodeUmlauts = (str: string) =>
-  str
-    .replace(/ä/g, 'ae')
-    .replace(/ö/g, 'oe')
-    .replace(/ü/g, 'ue')
-    .replace(/Ä/g, 'Ae')
-    .replace(/Ö/g, 'Oe')
-const decodeUmlauts = (str: string) =>
-  str
-    .replace(/ae/g, 'ä')
-    .replace(/oe/g, 'ö')
-    .replace(/ue/g, 'ü')
-    .replace(/Ae/g, 'Ä')
-    .replace(/Oe/g, 'Ö')
-
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
+import {
+  supportedCountries,
+  encodeUmlauts,
+  findSupportedCountry,
+  capitalize,
+  decodeUmlauts,
+} from './helpers'
 
 export async function generateStaticParams() {
   const params = (
@@ -46,6 +25,8 @@ export async function generateStaticParams() {
 
   return params
 }
+
+export const dynamicParams = false
 
 export default function Page({
   params,
