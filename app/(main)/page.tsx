@@ -7,9 +7,9 @@ import Heyhopping2 from '@/public/heyhopping-2.jpg.webp'
 import Heyhopping3 from '@/public/heyhopping-3.jpg.webp'
 import PeopleLaugh from '@/public/people-laugh.jpg.webp'
 import Hero from '@/public/hero.webp'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { CalendarClock, Users, CircleCheckBig } from 'lucide-react'
+import { GettingStarted } from '@/components/getting-started'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -265,21 +265,6 @@ export default async function Index() {
           </Header>
         </main>
       </div>
-
-      <footer className="flex w-full justify-center space-x-4 border-t border-t-foreground/10 p-8 text-center text-xs">
-        <p>Made in Switzerland</p>
-        <p>
-          <a href="mailto:hi@heyhopping.com">Contact</a>
-        </p>
-      </footer>
     </div>
-  )
-}
-
-const GettingStarted = () => {
-  return (
-    <Button asChild className="self-center px-6 py-8 text-2xl">
-      <Link href="/comingsoon">Get Started</Link>
-    </Button>
   )
 }
