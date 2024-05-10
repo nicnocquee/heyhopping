@@ -3,10 +3,9 @@ import './globals.css'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { CSPostHogProvider, CookieBanner } from '@/app/analytics'
 import { Toaster } from '@/components/ui/sonner'
+import { env } from '@/app/env'
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+const defaultUrl = env.VERCEL_URL ? `https://${env.VERCEL_URL}` : 'http://localhost:3000'
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),

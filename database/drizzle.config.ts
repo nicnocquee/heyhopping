@@ -1,6 +1,8 @@
 import type { Config } from 'drizzle-kit'
 import path from 'path'
 import * as dotenv from 'dotenv'
+import { env } from '@/app/env'
+
 dotenv.config()
 
 export default {
@@ -8,6 +10,6 @@ export default {
   out: path.join(__dirname, 'generated'),
   driver: 'pg',
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL!,
+    connectionString: env.DATABASE_URL,
   },
 } satisfies Config
