@@ -26,7 +26,7 @@ export async function getCitiesByCountry(countryName: string): Promise<string[]>
 
   await pipelineAsync(createReadStream(filename), parser)
 
-  return cities
+  return cities.filter((city) => !city.includes('(') && !city.includes('/'))
 }
 
 export async function getCountry(countryCode: string): Promise<{ name: string; code: string }> {

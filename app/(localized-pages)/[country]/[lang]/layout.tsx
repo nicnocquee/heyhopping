@@ -20,6 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
   params: { country: string; lang: string }
 }) {
+  console.log(params)
   return (
     <html lang={params.lang} className={GeistSans.className}>
       <body className="bg-background text-foreground">

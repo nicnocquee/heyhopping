@@ -21,7 +21,7 @@ import FrenchPost2 from './markdown/common-2/fr.mdx'
 import ItalianPost2 from './markdown/common-2/it.mdx'
 import EnglishPost2 from './markdown/common-2/en.mdx'
 import { GettingStarted } from '@/components/getting-started'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -98,27 +98,29 @@ export default function Page({
   const EnglishPostToUse = getRandomElement([EnglishPost, EnglishPost1, EnglishPost2])
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-8 p-4 py-16">
-      <Link href="/">
-        <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
-      </Link>
+    <div>
+      <div className="flex flex-col items-center justify-center space-y-8 p-4 py-16">
+        <Link href="/">
+          <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
+        </Link>
 
-      <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
-        {lang === 'de' ? (
-          // @ts-ignore
-          <GermanPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
-        ) : lang === 'fr' ? (
-          // @ts-ignore
-          <FrenchPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
-        ) : lang === 'it' ? (
-          // @ts-ignore
-          <ItalianPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
-        ) : (
-          // @ts-ignore
-          <EnglishPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
-        )}
+        <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
+          {lang === 'de' ? (
+            // @ts-ignore
+            <GermanPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          ) : lang === 'fr' ? (
+            // @ts-ignore
+            <FrenchPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          ) : lang === 'it' ? (
+            // @ts-ignore
+            <ItalianPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          ) : (
+            // @ts-ignore
+            <EnglishPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          )}
+        </div>
+        <GettingStarted />
       </div>
-      <GettingStarted />
     </div>
   )
 }

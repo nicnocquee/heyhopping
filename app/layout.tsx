@@ -12,7 +12,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    // eslint-disable-next-line jsx-a11y/html-has-lang
+    <html className={GeistSans.className}>
       <body className="bg-background text-foreground">{children}</body>
     </html>
   )
