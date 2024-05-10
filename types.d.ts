@@ -10,3 +10,10 @@ declare module 'url-matcher' {
       }
     | undefined
 }
+
+// Assuming your MDX components accept any props for maximum flexibility
+declare module '*.mdx' {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MDXComponent: React.ComponentType<any>
+  export default MDXComponent
+}

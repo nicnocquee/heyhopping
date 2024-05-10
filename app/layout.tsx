@@ -21,6 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CSPostHogProvider>
           <TooltipProvider>
             <main className="flex min-h-screen flex-col items-center">{children}</main>
+            <footer className="flex w-full justify-center space-x-4 border-t border-t-foreground/10 p-8 text-center text-xs">
+              <p>Made in Switzerland</p>
+              <p>
+                <a href="mailto:hi@heyhopping.com">Contact</a>
+              </p>
+            </footer>
           </TooltipProvider>
           <CookieBanner />
         </CSPostHogProvider>

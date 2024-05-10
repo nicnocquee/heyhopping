@@ -38,6 +38,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.json",
+    "**/*.mdx",
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts"
