@@ -1,5 +1,5 @@
 import { GeistSans } from 'geist/font/sans'
-import './globals.css'
+import '../globals.css'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { CSPostHogProvider, CookieBanner } from '@/app/analytics'
 import { Toaster } from '@/components/ui/sonner'

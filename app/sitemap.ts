@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { MetadataRoute } from 'next'
-import { generateStaticParams } from './[country]/[lang]/[city]/page'
+import { generateStaticParams } from './(localized-pages)/[country]/[lang]/[city]/page'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = [
