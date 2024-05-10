@@ -29,19 +29,20 @@ const decodeUmlauts = (str: string) =>
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 export async function generateStaticParams() {
-  const params = await Promise.all(
-    supportedCountries.flatMap(async (country) => {
-      const langs = country.languages
-      const cities = await getCitiesByCountry(country.name)
-      return langs.flatMap((lang) => {
-        return cities.map((city) => ({
-          country: country.code,
-          lang,
-          city: encodeURIComponent(encodeUmlauts(city)).toLowerCase(),
-        }))
+  const params = (
+    await Promise.all(
+      supportedCountries.flatMap(async (country) => {
+        const cities = await getCitiesByCountry(country.name)
+        return cities.flatMap((city) =>
+          country.languages.map((lang) => ({
+            country: country.code,
+            lang,
+            city: encodeURIComponent(encodeUmlauts(city)).toLowerCase(),
+          }))
+        )
       })
-    })
-  )
+    )
+  ).flat()
 
   return params
 }
