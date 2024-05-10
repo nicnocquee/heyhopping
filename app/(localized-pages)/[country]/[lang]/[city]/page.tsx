@@ -12,6 +12,14 @@ import GermanPost from './markdown/common/de.mdx'
 import FrenchPost from './markdown/common/fr.mdx'
 import ItalianPost from './markdown/common/it.mdx'
 import EnglishPost from './markdown/common/en.mdx'
+import GermanPost1 from './markdown/common-1/de.mdx'
+import FrenchPost1 from './markdown/common-1/fr.mdx'
+import ItalianPost1 from './markdown/common-1/it.mdx'
+import EnglishPost1 from './markdown/common-1/en.mdx'
+import GermanPost2 from './markdown/common-2/de.mdx'
+import FrenchPost2 from './markdown/common-2/fr.mdx'
+import ItalianPost2 from './markdown/common-2/it.mdx'
+import EnglishPost2 from './markdown/common-2/en.mdx'
 import { GettingStarted } from '@/components/getting-started'
 import type { Metadata, ResolvingMetadata } from 'next'
 import Link from 'next/link'
@@ -84,6 +92,11 @@ export default function Page({
     return <div>Country not supported yet</div>
   }
 
+  const GermanPostToUse = getRandomElement([GermanPost, GermanPost1, GermanPost2])
+  const FrenchPostToUse = getRandomElement([FrenchPost, FrenchPost1, FrenchPost2])
+  const ItalianPostToUse = getRandomElement([ItalianPost, ItalianPost1, ItalianPost2])
+  const EnglishPostToUse = getRandomElement([EnglishPost, EnglishPost1, EnglishPost2])
+
   return (
     <div className="flex flex-col items-center justify-center space-y-8 p-4 py-16">
       <Link href="/">
@@ -93,19 +106,22 @@ export default function Page({
       <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
         {lang === 'de' ? (
           // @ts-ignore
-          <GermanPost city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          <GermanPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
         ) : lang === 'fr' ? (
           // @ts-ignore
-          <FrenchPost city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          <FrenchPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
         ) : lang === 'it' ? (
           // @ts-ignore
-          <ItalianPost city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          <ItalianPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
         ) : (
           // @ts-ignore
-          <EnglishPost city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
+          <EnglishPostToUse city={decodeUmlauts(capitalize(decodeURIComponent(city)))} />
         )}
       </div>
       <GettingStarted />
     </div>
   )
 }
+
+const getRandomElement = <T,>(arr: T[]): T | undefined =>
+  arr.length ? arr[Math.floor(Math.random() * arr.length)] : undefined
