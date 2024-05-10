@@ -7,8 +7,6 @@ export const GET = async (
 ) => {
   const { country, lang, city } = params
 
-  console.log(country, lang, city)
-
   const existingCountry = await getCountry(country)
   if (existingCountry.name === '') {
     return Response.json({ error: 'country_not_found' }, { status: 404 })
