@@ -14,6 +14,7 @@ import ItalianPost from './markdown/common/it.mdx'
 import EnglishPost from './markdown/common/en.mdx'
 import { GettingStarted } from '@/components/getting-started'
 import type { Metadata, ResolvingMetadata } from 'next'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   const params = (
@@ -85,7 +86,9 @@ export default function Page({
 
   return (
     <div className="flex flex-col items-center justify-center space-y-8 p-4 py-16">
-      <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
+      <Link href="/">
+        <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
+      </Link>
 
       <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
         {lang === 'de' ? (

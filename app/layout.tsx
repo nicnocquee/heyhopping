@@ -9,8 +9,8 @@ const defaultUrl = env.VERCEL_URL ? `https://${env.VERCEL_URL}` : 'http://localh
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'Next.js and Supabase Starter Kit',
-  description: 'The fastest way to build apps with Next.js and Supabase',
+  title: 'HeyHopping | Find new friends in your city',
+  description: 'The easiest way to meet new people and make lasting friendships in your city.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
