@@ -3,6 +3,8 @@
 import { matchPattern } from 'url-matcher'
 import { usePathname } from 'next/navigation'
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 const queryClient = new QueryClient()
 
@@ -12,13 +14,21 @@ export default function NotFoundClient() {
   const matches = matchPattern('/:country/:lang/:city', pathname)
 
   if (!matches) {
-    return <div>Page not found</div>
+    return (
+      <Common>
+        <p>Page not found</p>
+      </Common>
+    )
   }
 
   const [countryParam, langParam, cityParam] = matches.paramNames
 
   if (!countryParam && !langParam && !cityParam) {
-    return <div>Page not found</div>
+    return (
+      <Common>
+        <p>Page not found</p>
+      </Common>
+    )
   }
 
   const [country, lang, city] = matches.paramValues
@@ -52,12 +62,39 @@ const NotFoundClientFetch = ({
   }
 
   if (data?.error === 'country_not_found') {
-    return <div>Country with param {country} not found</div>
+    return (
+      <Common>
+        <p>
+          Country with code <strong>{country}</strong> not found
+        </p>
+      </Common>
+    )
   }
 
   if (data?.error === 'city_not_found') {
-    return <div>City with name {city} not found</div>
+    return (
+      <Common>
+        <p>
+          City with name <strong>{city}</strong> not found
+        </p>
+      </Common>
+    )
   }
 
-  return <div>Page not found</div>
+  return (
+    <Common>
+      <p>Page not found</p>
+    </Common>
+  )
+}
+
+const Common = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="flex flex-col items-center space-y-2">
+      {children}
+      <Button>
+        <Link href={'/'}>Back to home</Link>
+      </Button>
+    </div>
+  )
 }
