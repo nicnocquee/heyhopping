@@ -40,8 +40,6 @@ export async function generateStaticParams() {
     )
   ).flat()
 
-  console.dir(params, { depth: null })
-
   return params
 }
 
