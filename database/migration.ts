@@ -3,7 +3,6 @@ import { connectionString, db } from './db'
 import postgres from 'postgres'
 import path from 'path'
 
-console.log(connectionString)
 const main = async () => {
   const sql = postgres(connectionString, { max: 1 })
 

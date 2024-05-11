@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { generateStaticParams } from '@/app/(localized-pages)/[country]/[lang]/[city]/page'
+import { generateStaticParams as generateStaticParamsCountry } from '@/app/(localized-pages)/[country]/[lang]/page'
 import { MetadataRoute } from 'next'
 
 export const dynamic = 'force-dynamic' // defaults to auto
@@ -79,6 +80,33 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   Object.keys(grouped).forEach((key) => {
     const item = grouped[key]
+    pages.push(item)
+  })
+
+  const countryLangPages = await generateStaticParamsCountry()
+  const groupedCountry = countryLangPages.reduce((acc, cur) => {
+    const country = cur.country
+    const lang = cur.lang
+    const identifier = country
+    if (!acc[identifier]) {
+      acc[identifier] = {}
+    }
+    if (lang === 'en') {
+      acc[identifier].url = `https://www.heyhopping.com/${country}/en/`
+    } else {
+      if (!acc[identifier].alternates) {
+        acc[identifier].alternates = {
+          languages: {},
+        }
+      }
+
+      acc[identifier].alternates.languages[lang] = `https://www.heyhopping.com/${country}/${lang}`
+    }
+    return acc
+  }, {} as any)
+
+  Object.keys(groupedCountry).forEach((key) => {
+    const item = groupedCountry[key]
     pages.push(item)
   })
 
