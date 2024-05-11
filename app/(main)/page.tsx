@@ -14,8 +14,9 @@ import { GettingStarted } from '@/components/getting-started'
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
   description:
-    'Heyhopping has sped up the process of finding new people and meeting new people. Choose where and when, then pick a company!',
+    "Heyhopping speeds up the process of finding new people and meeting new people. Choose where and when, then pick a company! It's not like other meet up application!",
   keywords: [
+    'meetup application',
     'meet',
     'new',
     'people',
@@ -27,11 +28,12 @@ export const metadata: Metadata = {
     'events',
     'restaurant',
     'concert',
+    'stranger meetup',
   ],
   openGraph: {
     title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
     description:
-      'Heyhopping has sped up the process of finding new people and meeting new people. Choose where and when, then pick a company!',
+      "Heyhopping speeds up the process of finding new people and meeting new people. Choose where and when, then pick a company! It's not like other meet up application!",
     url: 'https://www.heyhopping.com',
     images: [
       {
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
     description:
-      'Heyhopping has sped up the process of finding new people and meeting new people. Choose where and when, then pick a company!',
+      "Heyhopping speeds up the process of finding new people and meeting new people. Choose where and when, then pick a company! It's not like other meet up application!",
     images: [
       {
         url: `https://www.heyhopping.com/screenshots/index.webp`,

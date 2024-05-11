@@ -65,7 +65,35 @@ export async function generateMetadata({
   return {
     title: title[params.lang as keyof typeof title] || title['en'],
     description: description[params.lang as keyof typeof description] || description['en'],
+    keywords: [
+      'meetup application',
+      'meet',
+      'new',
+      'people',
+      'date',
+      'chat',
+      'meetup',
+      'social',
+      'networking',
+      'events',
+      'restaurant',
+      'concert',
+      'stranger meetup',
+    ],
     openGraph: {
+      images: [
+        {
+          url: `https://www.heyhopping.com/screenshots/index.webp`,
+          width: 1200,
+          height: 630,
+          alt: 'Heyhopping',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: title[params.lang as keyof typeof title] || title['en'],
+      description: description[params.lang as keyof typeof description] || description['en'],
       images: [
         {
           url: `https://www.heyhopping.com/screenshots/index.webp`,
