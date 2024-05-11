@@ -41,7 +41,6 @@ export const signUp = async (formData: { email: string; recaptchaToken: string }
 
   const supabase = createClient()
 
-  console.log(`${origin}/comingsoon/complete`)
   const { error, data } = await supabase.auth.signUp({
     email,
     password,

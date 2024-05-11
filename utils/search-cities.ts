@@ -52,8 +52,3 @@ export async function getCountry(countryCode: string): Promise<{ name: string; c
 
   return country
 }
-
-// // Usage example
-// const filename = 'path/to/your/file.csv';
-// const countryName = 'United Arab Emirates';
-// getCitiesByCountry(filename, countryName).then(cities => console.log(cities));
