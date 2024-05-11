@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   const params = (
     await Promise.all(
       supportedCountries.flatMap(async (country) => {
-        return country.languages.map((lang) => ({
+        return country.languages.flatMap((lang) => ({
           country: country.code,
           lang,
         }))
@@ -58,7 +58,7 @@ export default async function Page({
               <Link
                 prefetch={false}
                 className="underline"
-                href={`/${page.country}/${page.lang}/${encodeURIComponent(encodeUmlauts(page.city))}`}
+                href={`/${page.country}/${page.lang}/${page.city}`}
                 key={`/${page.country}/${page.lang}/${page.city}`}
               >
                 {capitalize(decodeUmlauts(decodeURIComponent(page.city)))}
