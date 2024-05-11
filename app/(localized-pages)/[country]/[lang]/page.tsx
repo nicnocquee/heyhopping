@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { generateStaticParams } from './[city]/page'
-import { capitalize, decodeUmlauts, encodeUmlauts } from './[city]/helpers'
+import { generateStaticParams as generateStaticParamsCity } from './[city]/page'
+import { capitalize, decodeUmlauts, encodeUmlauts, supportedCountries } from './[city]/helpers'
 import { getCountry } from '@/utils/search-cities'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
@@ -9,12 +9,27 @@ import CountryMarkdownDe from './markdown/de.mdx'
 import CountryMarkdownFr from './markdown/fr.mdx'
 import CountryMarkdownIt from './markdown/it.mdx'
 
+export async function generateStaticParams() {
+  const params = (
+    await Promise.all(
+      supportedCountries.flatMap(async (country) => {
+        return country.languages.map((lang) => ({
+          country: country.code,
+          lang,
+        }))
+      })
+    )
+  ).flat()
+
+  return params
+}
+
 export default async function Page({
   params: { country, lang },
 }: {
   params: { country: string; lang: string }
 }) {
-  const data = await generateStaticParams()
+  const data = await generateStaticParamsCity()
   const theCountry = await getCountry(country)
   return (
     <div className="flex flex-col items-center justify-center space-y-8 p-2 text-foreground sm:p-8">
