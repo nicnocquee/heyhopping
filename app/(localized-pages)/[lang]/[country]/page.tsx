@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { generateStaticParams as generateStaticParamsCity } from './[city]/page'
-import { capitalize, decodeUmlauts, encodeUmlauts, supportedCountries } from './[city]/helpers'
+import { capitalize, decodeUmlauts, supportedCountries } from './[city]/helpers'
 import { getCountry } from '@/utils/search-cities'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
-import CountryMarkdownEn from './markdown/en.mdx'
-import CountryMarkdownDe from './markdown/de.mdx'
-import CountryMarkdownFr from './markdown/fr.mdx'
-import CountryMarkdownIt from './markdown/it.mdx'
+import CountryMarkdownEn from '@/app/markdown/en/country/index.mdx'
+import CountryMarkdownDe from '@/app/markdown/de/country/index.mdx'
+import CountryMarkdownFr from '@/app/markdown/fr/country/index.mdx'
+import CountryMarkdownIt from '@/app/markdown/it/country/index.mdx'
 
 export async function generateStaticParams() {
   const params = (
@@ -58,8 +58,8 @@ export default async function Page({
               <Link
                 prefetch={false}
                 className="underline"
-                href={`/${page.country}/${page.lang}/${page.city}`}
-                key={`/${page.country}/${page.lang}/${page.city}`}
+                href={`/${page.lang}/${page.country}/${page.city}`}
+                key={`/${page.lang}/${page.country}/${page.city}`}
               >
                 {capitalize(decodeUmlauts(decodeURIComponent(page.city)))}
               </Link>

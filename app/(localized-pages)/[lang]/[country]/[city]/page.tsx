@@ -8,18 +8,18 @@ import {
 } from './helpers'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
-import GermanPost from './markdown/common/de.mdx'
-import FrenchPost from './markdown/common/fr.mdx'
-import ItalianPost from './markdown/common/it.mdx'
-import EnglishPost from './markdown/common/en.mdx'
-import GermanPost1 from './markdown/common-1/de.mdx'
-import FrenchPost1 from './markdown/common-1/fr.mdx'
-import ItalianPost1 from './markdown/common-1/it.mdx'
-import EnglishPost1 from './markdown/common-1/en.mdx'
-import GermanPost2 from './markdown/common-2/de.mdx'
-import FrenchPost2 from './markdown/common-2/fr.mdx'
-import ItalianPost2 from './markdown/common-2/it.mdx'
-import EnglishPost2 from './markdown/common-2/en.mdx'
+import GermanPost1 from '@/app/markdown/de/country/city/index1.mdx'
+import FrenchPost1 from '@/app/markdown/fr/country/city/index1.mdx'
+import ItalianPost1 from '@/app/markdown/it/country/city/index1.mdx'
+import EnglishPost1 from '@/app/markdown/en/country/city/index1.mdx'
+import GermanPost2 from '@/app/markdown/de/country/city/index2.mdx'
+import FrenchPost2 from '@/app/markdown/fr/country/city/index2.mdx'
+import ItalianPost2 from '@/app/markdown/it/country/city/index2.mdx'
+import EnglishPost2 from '@/app/markdown/en/country/city/index2.mdx'
+import GermanPost3 from '@/app/markdown/de/country/city/index3.mdx'
+import FrenchPost3 from '@/app/markdown/fr/country/city/index3.mdx'
+import ItalianPost3 from '@/app/markdown/it/country/city/index3.mdx'
+import EnglishPost3 from '@/app/markdown/en/country/city/index3.mdx'
 import { GettingStarted } from '@/components/getting-started'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -120,10 +120,10 @@ export default function Page({
     return <div>Country not supported yet</div>
   }
 
-  const GermanPostToUse = getRandomElement([GermanPost, GermanPost1, GermanPost2])
-  const FrenchPostToUse = getRandomElement([FrenchPost, FrenchPost1, FrenchPost2])
-  const ItalianPostToUse = getRandomElement([ItalianPost, ItalianPost1, ItalianPost2])
-  const EnglishPostToUse = getRandomElement([EnglishPost, EnglishPost1, EnglishPost2])
+  const GermanPostToUse = getRandomElement([GermanPost3, GermanPost1, GermanPost2])
+  const FrenchPostToUse = getRandomElement([FrenchPost3, FrenchPost1, FrenchPost2])
+  const ItalianPostToUse = getRandomElement([ItalianPost3, ItalianPost1, ItalianPost2])
+  const EnglishPostToUse = getRandomElement([EnglishPost3, EnglishPost1, EnglishPost2])
 
   return (
     <div>

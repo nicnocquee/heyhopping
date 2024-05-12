@@ -10,6 +10,31 @@ import Hero from '@/public/hero.webp'
 import Link from 'next/link'
 import { CalendarClock, Users, CircleCheckBig } from 'lucide-react'
 import { GettingStarted } from '@/components/getting-started'
+import EnSection1 from '@/app/markdown/en/index/section1.mdx'
+import DeSection1 from '@/app/markdown/de/index/section1.mdx'
+import FrSection1 from '@/app/markdown/fr/index/section1.mdx'
+import ItSection1 from '@/app/markdown/it/index/section1.mdx'
+import EnSection2 from '@/app/markdown/en/index/section2.mdx'
+import DeSection2 from '@/app/markdown/de/index/section2.mdx'
+import FrSection2 from '@/app/markdown/fr/index/section2.mdx'
+import ItSection2 from '@/app/markdown/it/index/section2.mdx'
+import EnSection3 from '@/app/markdown/en/index/section3.mdx'
+import DeSection3 from '@/app/markdown/de/index/section3.mdx'
+import FrSection3 from '@/app/markdown/fr/index/section3.mdx'
+import ItSection3 from '@/app/markdown/it/index/section3.mdx'
+import EnHowToItem1 from '@/app/markdown/en/index/howto1.mdx'
+import DeHowToItem1 from '@/app/markdown/de/index/howto1.mdx'
+import FrHowToItem1 from '@/app/markdown/fr/index/howto1.mdx'
+import ItHowToItem1 from '@/app/markdown/it/index/howto1.mdx'
+import EnHowToItem2 from '@/app/markdown/en/index/howto2.mdx'
+import DeHowToItem2 from '@/app/markdown/de/index/howto2.mdx'
+import FrHowToItem2 from '@/app/markdown/fr/index/howto2.mdx'
+import ItHowToItem2 from '@/app/markdown/it/index/howto2.mdx'
+import EnHowToItem3 from '@/app/markdown/en/index/howto3.mdx'
+import DeHowToItem3 from '@/app/markdown/de/index/howto3.mdx'
+import FrHowToItem3 from '@/app/markdown/fr/index/howto3.mdx'
+import ItHowToItem3 from '@/app/markdown/it/index/howto3.mdx'
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -89,21 +114,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
           <section className="w-full bg-yellow-300 px-4 py-12 sm:px-0 sm:py-28">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-4">
               <div className="space-y-8 text-lg sm:col-span-2 sm:pr-10 sm:text-2xl">
-                <h2 className="mb-4 text-5xl font-bold sm:text-7xl">
-                  More Connection, Less Screen Time
-                </h2>
-                <p className="text-lg sm:text-xl">
-                  Break away from traditional networking apps that keep you online, crafting the
-                  perfect profile and endlessly browsing others.
-                </p>
-                <p>
-                  <strong>
-                    With Heyhopping, start your social journey in the real world by choosing a venue
-                    or event that excites you.
-                  </strong>{' '}
-                  Whether it's a local coffee shop, a live concert, or a spontaneous meetup at an
-                  art exhibition, just choose a place and find company interested in joining.
-                </p>
+                <Section1Content lang={langToUse} />
               </div>
               <div className="sm:col-span-2">
                 <div className="relative h-full w-full overflow-clip rounded-md shadow-md">
@@ -126,29 +137,9 @@ export default async function Index({ params }: { params: { lang?: string } }) {
             <div className="mx-auto max-w-6xl space-y-12 px-4 py-20 text-center text-slate-600 sm:px-0">
               <h2 className="mb-4 text-2xl font-bold sm:text-7xl">How it works</h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {[
-                  [
-                    <CalendarClock key={0} width={60} height={60} />,
-                    'Pick a Spot and Time',
-                    "Fancy checking out that new cafe everyone's talking about? Or maybe there's a cool art show or a live gig you don't want to miss? Start by setting up where and when you wanna go.",
-                  ],
-                  [
-                    <Users key={1} width={60} height={60} />,
-                    'Find Your Crowd',
-                    'Hang tight while other Heyhopping folks who dig the same stuff as you hop on board your plan.',
-                  ],
-                  [
-                    <CircleCheckBig key={2} width={60} height={60} />,
-                    'Choose Your Adventure Buddy',
-                    "Scroll through the profiles of interested peeps and select your plus-one. No group coordination needed — it's just the two of you, so it's all chill and no fuss.",
-                  ],
-                ].map(([Icon, title, description], index) => (
-                  <div key={index} className="flex flex-col items-center space-y-4">
-                    {Icon}
-                    <p className="text-xl font-semibold">{title}</p>
-                    <p>{description}</p>
-                  </div>
-                ))}
+                <HowToItem1 lang={langToUse} />
+                <HowToItem2 lang={langToUse} />
+                <HowToItem3 lang={langToUse} />
               </div>
               <p className="mx-auto max-w-md text-2xl italic">
                 Heyhopping simplifies meeting up so you can get to know each other in person, right
@@ -172,21 +163,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
               />
             </div>
             <div className="mx-auto flex flex-col justify-center space-y-4 p-4">
-              <h2 className="mb-4 text-4xl font-bold sm:text-7xl">Discover Without Pressure</h2>
-              <p className="text-lg">
-                Skip the stress of perfecting your profile and finding the right words to break the
-                ice.
-              </p>
-              <p className="text-lg">
-                <strong>Heyhopping introduces a natural starting point: the venue.</strong> Whether
-                you're eager to try out a new gourmet spot, or curious about the latest art exhibit,
-                Heyhopping creates opportunities to meet based on shared interests in specific
-                events or locations.
-              </p>
-              <p className="text-lg">
-                This common ground eases the initial conversation, allowing you to focus on enjoying
-                the experience and making meaningful connections.
-              </p>
+              <Section2Content lang={langToUse} />
               <GettingStarted />
             </div>
           </section>
@@ -204,21 +181,10 @@ export default async function Index({ params }: { params: { lang?: string } }) {
                 }}
               />
               <div className="z-10 mx-auto flex flex-col justify-center space-y-4 text-yellow-400 sm:absolute sm:inset-0 sm:max-w-4xl sm:text-right">
-                <h2 className="mb-4 text-2xl font-bold sm:text-7xl">Discover Without Pressure</h2>
-                <p className="text-2xl">
-                  Skip the stress of perfecting your profile and finding the right words to break
-                  the ice.
-                </p>
-                <p className="py-10 text-4xl">
-                  <strong>Heyhopping introduces a natural starting point: the venue.</strong>{' '}
-                  Whether you're eager to try out a new gourmet spot, or curious about the latest
-                  art exhibit, Heyhopping creates opportunities to meet based on shared interests in
-                  specific events or locations.
-                </p>
-                <p className="pb-6 text-2xl">
-                  This common ground eases the initial conversation, allowing you to focus on
-                  enjoying the experience and making meaningful connections.
-                </p>
+                <Section2Content
+                  lang={langToUse}
+                  className="[&_h2]:sm:text-7x space-y-8 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_p]:text-2xl [&_p]:sm:text-3xl"
+                />
                 <GettingStarted />
               </div>
             </div>
@@ -226,25 +192,8 @@ export default async function Index({ params }: { params: { lang?: string } }) {
 
           <section className="w-full bg-yellow-300 px-4 py-28 sm:px-0">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-4">
-              <div className="space-y-8 text-2xl sm:col-span-2 sm:pr-10">
-                <h2 className="mb-4 text-5xl font-bold sm:text-7xl">More Than Just Dates</h2>
-                <p className="text-lg sm:text-xl">
-                  Heyhopping is not just another dating app. It's a platform for anyone interested
-                  in making new friends, exploring shared interests, or simply enjoying company at
-                  an event.
-                </p>
-                <p>
-                  Whether you want to explore culinary delights, appreciate art, sweat it out in a
-                  gym class, or groove at a concert,{' '}
-                  <strong>
-                    Heyhopping is about finding the right company to enrich your experiences.
-                  </strong>
-                </p>
-                <p className="text-lg sm:text-xl">
-                  Make connections that might flourish into friendships, networking opportunities,
-                  or simply great social interactions,{' '}
-                  <strong>without the labels or expectations of traditional dating apps.</strong>
-                </p>
+              <div className="space-y-8 text-lg sm:col-span-2 sm:pr-10 sm:text-2xl">
+                <Section3Content lang={langToUse} />
               </div>
               <div className="sm:col-span-2">
                 <div className="relative flex h-full w-full flex-col justify-center overflow-clip ">
@@ -274,5 +223,87 @@ export default async function Index({ params }: { params: { lang?: string } }) {
         </main>
       </div>
     </div>
+  )
+}
+
+const Section1Content = ({ lang }: { lang: string }) => {
+  return (
+    <div className="space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl">
+      {lang === 'en' ? <EnSection1 /> : null}
+      {lang === 'de' ? <DeSection1 /> : null}
+      {lang === 'fr' ? <FrSection1 /> : null}
+      {lang === 'it' ? <ItSection1 /> : null}
+    </div>
+  )
+}
+
+const Section2Content = ({ lang, className }: { lang: string; className?: string }) => {
+  return (
+    <div
+      className={cn(
+        'space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl',
+        className
+      )}
+    >
+      {lang === 'en' ? <EnSection2 /> : null}
+      {lang === 'de' ? <DeSection2 /> : null}
+      {lang === 'fr' ? <FrSection2 /> : null}
+      {lang === 'it' ? <ItSection2 /> : null}
+    </div>
+  )
+}
+
+const Section3Content = ({ lang }: { lang: string }) => {
+  return (
+    <div className="space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl">
+      {lang === 'en' ? <EnSection3 /> : null}
+      {lang === 'de' ? <DeSection3 /> : null}
+      {lang === 'fr' ? <FrSection3 /> : null}
+      {lang === 'it' ? <ItSection3 /> : null}
+    </div>
+  )
+}
+
+const HowToItemContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="flex flex-col items-center space-y-4 [&_h3]:text-xl [&_h3]:font-semibold">
+      {children}
+    </div>
+  )
+}
+
+const HowToItem1 = ({ lang }: { lang: string }) => {
+  return (
+    <HowToItemContainer>
+      <CalendarClock key={0} width={60} height={60} />
+      {lang === 'en' ? <EnHowToItem1 /> : null}
+      {lang === 'de' ? <DeHowToItem1 /> : null}
+      {lang === 'fr' ? <FrHowToItem1 /> : null}
+      {lang === 'it' ? <ItHowToItem1 /> : null}
+    </HowToItemContainer>
+  )
+}
+
+const HowToItem2 = ({ lang }: { lang: string }) => {
+  return (
+    <HowToItemContainer>
+      <Users key={1} width={60} height={60} />
+      {lang === 'en' ? <EnHowToItem2 /> : null}
+      {lang === 'de' ? <DeHowToItem2 /> : null}
+      {lang === 'fr' ? <FrHowToItem2 /> : null}
+      {lang === 'it' ? <ItHowToItem2 /> : null}
+    </HowToItemContainer>
+  )
+}
+
+const HowToItem3 = ({ lang }: { lang: string }) => {
+  return (
+    <HowToItemContainer>
+      <CircleCheckBig key={2} width={60} height={60} />
+      {lang === 'en' ? <EnHowToItem3 /> : null}
+      {lang === 'de' ? <DeHowToItem3 /> : null}
+      {lang === 'fr' ? <FrHowToItem3 /> : null}
+      {lang === 'it' ? <ItHowToItem3 /> : null}
+    </HowToItemContainer>
   )
 }
