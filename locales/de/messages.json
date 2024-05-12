@@ -1,6 +1,16 @@
 {
-  "get_started": "Anfangen",
-  "simplify_meeting": "Heyhopping vereinfacht das Kennenlernen, damit ihr euch gleich persönlich kennenlernen könnt.",
-  "how_it_works": "Wie funktioniert es?",
-  "meet_up": "Treffen"
+  "get_started": "Los geht's",
+  "simplify_meeting": "Heyhopping vereinfacht das Treffen, sodass ihr euch sofort persönlich kennenlernen könnt.",
+  "how_it_works": "Wie es funktioniert",
+  "meet_up": "Treffen",
+  "error": "Fehler",
+  "resend_confirmation": "Bestätigung erneut senden",
+  "coming_soon": "Demnächst",
+  "email": "E-Mail",
+  "submit": "Absenden",
+  "finish_submission": "Schließe deine Einreichung ab",
+  "finish_submission_description": "Wir haben dir eine E-Mail mit einem Link zum Abschluss deiner Einreichung gesendet. Bitte überprüfe dein Postfach und folge den Anweisungen.",
+  "back_to_home": "Zurück zur Startseite",
+  "enter_email_city": "Gib deine E-Mail-Adresse unten ein, um dich bei der Startung in {{city}} zu benachrichtigen!",
+  "your_city": "deine Stadt"
 }

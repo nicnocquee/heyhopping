@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers'
 import ComingSoon from './comingsoon'
 import { Metadata } from 'next'
+import { SupportedLanguage, yourCity } from '@/locales/.generated/locales'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Coming Soon',
@@ -18,8 +19,12 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ComingSoonPage() {
-  const city = cookies().get('city')?.value || 'your city'
+export default function ComingSoonPage({
+  params: { lang },
+}: {
+  params: { lang: SupportedLanguage }
+}) {
+  const city = cookies().get('city')?.value || yourCity(lang)
 
-  return <ComingSoon city={city} />
+  return <ComingSoon lang={lang} city={city} />
 }

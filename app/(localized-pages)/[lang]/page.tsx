@@ -79,9 +79,11 @@ export function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'de' }, { lang: 'fr' }, { lang: 'it' }]
 }
 
-export default async function Index({ params }: { params: { lang?: string } }) {
-  const langToUse = (params?.lang || 'en') as SupportedLanguage
-
+export default async function Index({
+  params: { lang = 'en' },
+}: {
+  params: { lang?: SupportedLanguage }
+}) {
   return (
     <div className="flex w-full flex-1 flex-col items-center">
       <Header image={Hero} imageContainerClassName="h-[300px] sm:h-2/3">
@@ -89,14 +91,14 @@ export default async function Index({ params }: { params: { lang?: string } }) {
           <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
             <Image alt="Heyhopping" src={HeyhoppingLogo} width={40} height={40} />
             <Link
-              href="/comingsoon"
+              href={`/${lang}/comingsoon`}
               className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 font-semibold text-white no-underline"
             >
-              {getStarted(langToUse)}
+              {getStarted(lang)}
             </Link>
           </div>
         </nav>
-        <HeaderChild lang={langToUse} />
+        <HeaderChild lang={lang} />
       </Header>
 
       <div className="flex w-full flex-1 flex-col gap-20 duration-500 fade-in zoom-in">
@@ -104,7 +106,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
           <section className="w-full bg-yellow-300 px-4 py-12 sm:px-0 sm:py-28">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-4">
               <div className="space-y-8 text-lg sm:col-span-2 sm:pr-10 sm:text-2xl">
-                <Section1Content lang={langToUse} />
+                <Section1Content lang={lang} />
               </div>
               <div className="sm:col-span-2">
                 <div className="relative h-full w-full overflow-clip rounded-md shadow-md">
@@ -125,14 +127,14 @@ export default async function Index({ params }: { params: { lang?: string } }) {
 
           <section className="w-full bg-white">
             <div className="mx-auto max-w-6xl space-y-12 px-4 py-20 text-center text-slate-600 sm:px-0">
-              <h2 className="mb-4 text-2xl font-bold sm:text-7xl">{howItWorks(langToUse)}</h2>
+              <h2 className="mb-4 text-2xl font-bold sm:text-7xl">{howItWorks(lang)}</h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                <HowToItem1 lang={langToUse} />
-                <HowToItem2 lang={langToUse} />
-                <HowToItem3 lang={langToUse} />
+                <HowToItem1 lang={lang} />
+                <HowToItem2 lang={lang} />
+                <HowToItem3 lang={lang} />
               </div>
-              <p className="mx-auto max-w-md text-2xl italic">{simplifyMeeting(langToUse)}</p>
-              <GettingStarted lang={langToUse} />
+              <p className="mx-auto max-w-md text-2xl italic">{simplifyMeeting(lang)}</p>
+              <GettingStarted lang={lang} />
             </div>
           </section>
 
@@ -150,8 +152,8 @@ export default async function Index({ params }: { params: { lang?: string } }) {
               />
             </div>
             <div className="mx-auto flex flex-col justify-center space-y-4 p-4">
-              <Section2Content lang={langToUse} />
-              <GettingStarted lang={langToUse} />
+              <Section2Content lang={lang} />
+              <GettingStarted lang={lang} />
             </div>
           </section>
 
@@ -169,10 +171,10 @@ export default async function Index({ params }: { params: { lang?: string } }) {
               />
               <div className="z-10 mx-auto flex flex-col justify-center space-y-4 text-yellow-400 sm:absolute sm:inset-0 sm:max-w-4xl sm:text-right">
                 <Section2Content
-                  lang={langToUse}
+                  lang={lang}
                   className="[&_h2]:sm:text-7x space-y-8 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_p]:text-2xl [&_p]:sm:text-3xl"
                 />
-                <GettingStarted lang={langToUse} />
+                <GettingStarted lang={lang} />
               </div>
             </div>
           </section>
@@ -180,7 +182,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
           <section className="w-full bg-yellow-300 px-4 py-28 sm:px-0">
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-4">
               <div className="space-y-8 text-lg sm:col-span-2 sm:pr-10 sm:text-2xl">
-                <Section3Content lang={langToUse} />
+                <Section3Content lang={lang} />
               </div>
               <div className="sm:col-span-2">
                 <div className="relative flex h-full w-full flex-col justify-center overflow-clip ">
@@ -205,7 +207,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
               src={HeyhoppingLogo}
               className="h-32 w-32 object-contain sm:h-[200px] sm:w-[200px]"
             />
-            <GettingStarted lang={langToUse} />
+            <GettingStarted lang={lang} />
           </Header>
         </main>
       </div>

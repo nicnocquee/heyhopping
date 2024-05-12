@@ -15,16 +15,34 @@ import Link from 'next/link'
 import { QueryClient, QueryClientProvider, useMutation } from '@tanstack/react-query'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import { SignUpResult } from './action'
 import { env } from '@/app/env'
+import {
+  SupportedLanguage,
+  resendConfirmation,
+  error as errorMessage,
+  comingSoon,
+  email,
+  submit as submitMessage,
+  finishSubmission,
+  finishSubmissionDescription,
+  backToHome,
+  enterEmailCity,
+} from '@/locales/.generated/locales'
+import { SignUpResult } from '@/app/(main)/comingsoon/action'
 
 const queryClient = new QueryClient()
 
-export default function ComingSoonContainer({ city }: { city: string }) {
+export default function ComingSoonContainer({
+  city,
+  lang = 'en',
+}: {
+  city: string
+  lang?: SupportedLanguage
+}) {
   return (
     <ReCaptchaProvider reCaptchaKey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <QueryClientProvider client={queryClient}>
-        <ComingSoon city={city} />
+        <ComingSoon city={city} lang={lang} />
       </QueryClientProvider>
     </ReCaptchaProvider>
   )
@@ -55,7 +73,7 @@ const submit = async ({
   return result
 }
 
-export function ComingSoon({ city }: { city: string }) {
+export function ComingSoon({ city, lang = 'en' }: { city: string; lang?: SupportedLanguage }) {
   const { executeRecaptcha } = useReCaptcha()
 
   const { mutate, isPending, isSuccess, data } = useMutation({
@@ -71,7 +89,7 @@ export function ComingSoon({ city }: { city: string }) {
       {isError && error && (
         <div className="w-full max-w-sm">
           <Alert variant="destructive">
-            <AlertTitle>Error</AlertTitle>
+            <AlertTitle>{errorMessage(lang)}</AlertTitle>
             <AlertDescription>
               <div className="space-y-2">
                 <p>
@@ -90,7 +108,7 @@ export function ComingSoon({ city }: { city: string }) {
                       })
                     }}
                   >
-                    Resend confirmation
+                    {resendConfirmation(lang)}
                   </Button>
                 ) : null}
               </div>
@@ -114,14 +132,12 @@ export function ComingSoon({ city }: { city: string }) {
         >
           <Card className="w-full max-w-sm">
             <CardHeader>
-              <CardTitle className="text-2xl">Coming Soon</CardTitle>
-              <CardDescription>
-                {`Enter your email below to be notified when we launch in ${city}!`}
-              </CardDescription>
+              <CardTitle className="text-2xl">{comingSoon(lang)}</CardTitle>
+              <CardDescription>{enterEmailCity(lang, { city })}</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{email(lang)}</Label>
                 <Input
                   disabled={isPending}
                   id="email"
@@ -134,7 +150,7 @@ export function ComingSoon({ city }: { city: string }) {
             </CardContent>
             <CardFooter>
               <Button type="submit" disabled={isPending} className="w-full">
-                Submit
+                {submitMessage(lang)}
               </Button>
             </CardFooter>
           </Card>
@@ -144,16 +160,13 @@ export function ComingSoon({ city }: { city: string }) {
       {isSuccess && !isError ? (
         <Card className="w-full max-w-sm">
           <CardHeader>
-            <CardTitle className="text-2xl">Finish your submission</CardTitle>
-            <CardDescription>
-              We've sent you an email with a link to finish your submission. Please check your inbox
-              and follow the instructions.
-            </CardDescription>
+            <CardTitle className="text-2xl">{finishSubmission(lang)}</CardTitle>
+            <CardDescription>{finishSubmissionDescription(lang)}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4"></CardContent>
           <CardFooter>
             <Button asChild className="w-full">
-              <Link href={'/'}>Back to home</Link>
+              <Link href={'/'}>{backToHome(lang)}</Link>
             </Button>
           </CardFooter>
         </Card>
