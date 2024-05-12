@@ -1,3 +1,3 @@
-import LangPage from '@/app/(localized-landing)/[lang]/page'
+import LangPage from '@/app/(localized-pages)/[lang]/page'
 
 export default LangPage

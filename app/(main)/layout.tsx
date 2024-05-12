@@ -1,3 +1,3 @@
-import LangLayout from '@/app/(localized-landing)/[lang]/layout'
+import LangLayout from '@/app/(localized-pages)/[lang]/layout'
 
 export default LangLayout
