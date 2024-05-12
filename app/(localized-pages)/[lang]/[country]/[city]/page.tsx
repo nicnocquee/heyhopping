@@ -1,11 +1,5 @@
 import { getCitiesByCountry } from '@/utils/search-cities'
-import {
-  supportedCountries,
-  encodeUmlauts,
-  findSupportedCountry,
-  decodeUmlauts,
-  capitalize,
-} from './helpers'
+import { supportedCountries, encodeUmlauts, findSupportedCountry } from './helpers'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
 import { GettingStarted } from '@/components/getting-started'
