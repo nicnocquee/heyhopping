@@ -58,7 +58,6 @@ const submit = async ({
 
 export function ComingSoon({
   city,
-  lang = 'en',
   strings,
 }: {
   city: string
