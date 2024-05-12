@@ -1,7 +1,19 @@
 import { cookies } from 'next/headers'
 import ComingSoon from './comingsoon'
 import { Metadata } from 'next'
-import { SupportedLanguage, yourCity } from '@/locales/.generated/locales'
+import {
+  SupportedLanguage,
+  submit as submitMessage,
+  error as errorMessage,
+  backToHome,
+  comingSoon,
+  email,
+  enterEmailCity,
+  finishSubmission,
+  finishSubmissionDescription,
+  resendConfirmation,
+  yourCity,
+} from '@/locales/.generated/locales'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Coming Soon',
@@ -26,5 +38,21 @@ export default function ComingSoonPage({
 }) {
   const city = cookies().get('city')?.value || yourCity(lang)
 
-  return <ComingSoon lang={lang} city={city} />
+  return (
+    <ComingSoon
+      lang={lang}
+      city={city}
+      strings={{
+        comingSoon: comingSoon(lang),
+        email: email(lang),
+        submit: submitMessage(lang),
+        finishSubmission: finishSubmission(lang),
+        finishSubmissionDescription: finishSubmissionDescription(lang),
+        backToHome: backToHome(lang),
+        enterEmailCity: enterEmailCity(lang, { city }),
+        resendConfirmation: resendConfirmation(lang),
+        error: errorMessage(lang),
+      }}
+    />
+  )
 }
