@@ -39,7 +39,7 @@
     "**/*.tsx",
     "**/*.json",
     "**/*.mdx",
-    "app/.locales/generated/**/*",
+    "locales/.generated/**/*",
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts"

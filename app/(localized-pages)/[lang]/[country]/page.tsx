@@ -4,8 +4,8 @@ import { capitalize, decodeUmlauts, supportedCountries } from './[city]/helpers'
 import { getCountry } from '@/utils/search-cities'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
-import { CountryIndex } from '@/app/.locales/generated/locales-markdown'
-import { SupportedLanguage } from '@/app/.locales/generated/locales'
+import { CountryIndex } from '@/locales/.generated/locales-markdown'
+import { SupportedLanguage } from '@/locales/.generated/locales'
 
 export async function generateStaticParams() {
   const params = (

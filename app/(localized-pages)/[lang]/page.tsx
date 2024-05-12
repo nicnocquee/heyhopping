@@ -16,7 +16,7 @@ import {
   getStarted,
   howItWorks,
   simplifyMeeting,
-} from '@/app/.locales/generated/locales'
+} from '@/locales/.generated/locales'
 import {
   IndexHowto1,
   IndexHowto2,
@@ -24,7 +24,7 @@ import {
   IndexSection1,
   IndexSection2,
   IndexSection3,
-} from '@/app/.locales/generated/locales-markdown'
+} from '@/locales/.generated/locales-markdown'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',

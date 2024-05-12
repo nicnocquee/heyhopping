@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run generate-locales && next dev",
-    "generate-locales": "tsx app/locales/generateLocale.ts",
+    "generate-locales": "tsx generate-locale.ts",
     "build": "npm run generate-locales && next build",
     "start": "next start",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
