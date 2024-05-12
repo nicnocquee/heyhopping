@@ -50,6 +50,13 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = [
     {
       url: 'https://www.heyhopping.com',
+      alternates: {
+        languages: {
+          de: 'https://www.heyhopping.com/de',
+          fr: 'https://www.heyhopping.com/fr',
+          it: 'https://www.heyhopping.com/it',
+        },
+      },
     },
   ]
 
