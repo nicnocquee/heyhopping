@@ -10,32 +10,21 @@ import Hero from '@/public/hero.webp'
 import Link from 'next/link'
 import { CalendarClock, Users, CircleCheckBig } from 'lucide-react'
 import { GettingStarted } from '@/components/getting-started'
-import EnSection1 from '@/app/locales/en/index/section1.mdx'
-import DeSection1 from '@/app/locales/de/index/section1.mdx'
-import FrSection1 from '@/app/locales/fr/index/section1.mdx'
-import ItSection1 from '@/app/locales/it/index/section1.mdx'
-import EnSection2 from '@/app/locales/en/index/section2.mdx'
-import DeSection2 from '@/app/locales/de/index/section2.mdx'
-import FrSection2 from '@/app/locales/fr/index/section2.mdx'
-import ItSection2 from '@/app/locales/it/index/section2.mdx'
-import EnSection3 from '@/app/locales/en/index/section3.mdx'
-import DeSection3 from '@/app/locales/de/index/section3.mdx'
-import FrSection3 from '@/app/locales/fr/index/section3.mdx'
-import ItSection3 from '@/app/locales/it/index/section3.mdx'
-import EnHowToItem1 from '@/app/locales/en/index/howto1.mdx'
-import DeHowToItem1 from '@/app/locales/de/index/howto1.mdx'
-import FrHowToItem1 from '@/app/locales/fr/index/howto1.mdx'
-import ItHowToItem1 from '@/app/locales/it/index/howto1.mdx'
-import EnHowToItem2 from '@/app/locales/en/index/howto2.mdx'
-import DeHowToItem2 from '@/app/locales/de/index/howto2.mdx'
-import FrHowToItem2 from '@/app/locales/fr/index/howto2.mdx'
-import ItHowToItem2 from '@/app/locales/it/index/howto2.mdx'
-import EnHowToItem3 from '@/app/locales/en/index/howto3.mdx'
-import DeHowToItem3 from '@/app/locales/de/index/howto3.mdx'
-import FrHowToItem3 from '@/app/locales/fr/index/howto3.mdx'
-import ItHowToItem3 from '@/app/locales/it/index/howto3.mdx'
 import { cn } from '@/lib/utils'
-import { getStarted, howItWorks, simplifyMeeting } from '@/app/locales/generated/locales'
+import {
+  SupportedLanguage,
+  getStarted,
+  howItWorks,
+  simplifyMeeting,
+} from '@/app/.locales/generated/locales'
+import {
+  IndexHowto1,
+  IndexHowto2,
+  IndexHowto3,
+  IndexSection1,
+  IndexSection2,
+  IndexSection3,
+} from '@/app/.locales/generated/locales-markdown'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -91,7 +80,7 @@ export function generateStaticParams() {
 }
 
 export default async function Index({ params }: { params: { lang?: string } }) {
-  const langToUse = params?.lang || 'en'
+  const langToUse = (params?.lang || 'en') as SupportedLanguage
 
   return (
     <div className="flex w-full flex-1 flex-col items-center">
@@ -227,10 +216,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
 const Section1Content = ({ lang }: { lang: string }) => {
   return (
     <div className="space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl">
-      {lang === 'en' ? <EnSection1 /> : null}
-      {lang === 'de' ? <DeSection1 /> : null}
-      {lang === 'fr' ? <FrSection1 /> : null}
-      {lang === 'it' ? <ItSection1 /> : null}
+      <IndexSection1 lang={lang as SupportedLanguage} />
     </div>
   )
 }
@@ -243,10 +229,7 @@ const Section2Content = ({ lang, className }: { lang: string; className?: string
         className
       )}
     >
-      {lang === 'en' ? <EnSection2 /> : null}
-      {lang === 'de' ? <DeSection2 /> : null}
-      {lang === 'fr' ? <FrSection2 /> : null}
-      {lang === 'it' ? <ItSection2 /> : null}
+      <IndexSection2 lang={lang as SupportedLanguage} />
     </div>
   )
 }
@@ -254,10 +237,7 @@ const Section2Content = ({ lang, className }: { lang: string; className?: string
 const Section3Content = ({ lang }: { lang: string }) => {
   return (
     <div className="space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl">
-      {lang === 'en' ? <EnSection3 /> : null}
-      {lang === 'de' ? <DeSection3 /> : null}
-      {lang === 'fr' ? <FrSection3 /> : null}
-      {lang === 'it' ? <ItSection3 /> : null}
+      <IndexSection3 lang={lang as SupportedLanguage} />
     </div>
   )
 }
@@ -274,10 +254,7 @@ const HowToItem1 = ({ lang }: { lang: string }) => {
   return (
     <HowToItemContainer>
       <CalendarClock key={0} width={60} height={60} />
-      {lang === 'en' ? <EnHowToItem1 /> : null}
-      {lang === 'de' ? <DeHowToItem1 /> : null}
-      {lang === 'fr' ? <FrHowToItem1 /> : null}
-      {lang === 'it' ? <ItHowToItem1 /> : null}
+      <IndexHowto1 lang={lang as SupportedLanguage} />
     </HowToItemContainer>
   )
 }
@@ -286,10 +263,7 @@ const HowToItem2 = ({ lang }: { lang: string }) => {
   return (
     <HowToItemContainer>
       <Users key={1} width={60} height={60} />
-      {lang === 'en' ? <EnHowToItem2 /> : null}
-      {lang === 'de' ? <DeHowToItem2 /> : null}
-      {lang === 'fr' ? <FrHowToItem2 /> : null}
-      {lang === 'it' ? <ItHowToItem2 /> : null}
+      <IndexHowto2 lang={lang as SupportedLanguage} />
     </HowToItemContainer>
   )
 }
@@ -298,10 +272,7 @@ const HowToItem3 = ({ lang }: { lang: string }) => {
   return (
     <HowToItemContainer>
       <CircleCheckBig key={2} width={60} height={60} />
-      {lang === 'en' ? <EnHowToItem3 /> : null}
-      {lang === 'de' ? <DeHowToItem3 /> : null}
-      {lang === 'fr' ? <FrHowToItem3 /> : null}
-      {lang === 'it' ? <ItHowToItem3 /> : null}
+      <IndexHowto3 lang={lang as SupportedLanguage} />
     </HowToItemContainer>
   )
 }

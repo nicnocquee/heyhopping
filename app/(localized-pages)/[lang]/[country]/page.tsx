@@ -4,10 +4,8 @@ import { capitalize, decodeUmlauts, supportedCountries } from './[city]/helpers'
 import { getCountry } from '@/utils/search-cities'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
-import CountryMarkdownEn from '@/app/locales/en/country/index.mdx'
-import CountryMarkdownDe from '@/app/locales/de/country/index.mdx'
-import CountryMarkdownFr from '@/app/locales/fr/country/index.mdx'
-import CountryMarkdownIt from '@/app/locales/it/country/index.mdx'
+import { CountryIndex } from '@/app/.locales/generated/locales-markdown'
+import { SupportedLanguage } from '@/app/.locales/generated/locales'
 
 export async function generateStaticParams() {
   const params = (
@@ -38,16 +36,7 @@ export default async function Page({
       </Link>
 
       <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
-        {lang === 'it' ? ( // @ts-ignore
-          <CountryMarkdownIt country={theCountry.name} />
-        ) : lang === 'de' ? ( // @ts-ignore
-          <CountryMarkdownDe country={theCountry.name} />
-        ) : lang === 'fr' ? ( // @ts-ignore
-          <CountryMarkdownFr country={theCountry.name} />
-        ) : (
-          // @ts-ignore
-          <CountryMarkdownEn country={theCountry.name} />
-        )}
+        <CountryIndex country={theCountry.name} lang={lang as SupportedLanguage} />
       </div>
       <div className="grid grid-cols-1 gap-6 p-4 py-8 text-foreground sm:grid-cols-4">
         {data
