@@ -4,10 +4,10 @@ import { capitalize, decodeUmlauts, supportedCountries } from './[city]/helpers'
 import { getCountry } from '@/utils/search-cities'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
-import CountryMarkdownEn from '@/app/markdown/en/country/index.mdx'
-import CountryMarkdownDe from '@/app/markdown/de/country/index.mdx'
-import CountryMarkdownFr from '@/app/markdown/fr/country/index.mdx'
-import CountryMarkdownIt from '@/app/markdown/it/country/index.mdx'
+import CountryMarkdownEn from '@/app/locales/en/country/index.mdx'
+import CountryMarkdownDe from '@/app/locales/de/country/index.mdx'
+import CountryMarkdownFr from '@/app/locales/fr/country/index.mdx'
+import CountryMarkdownIt from '@/app/locales/it/country/index.mdx'
 
 export async function generateStaticParams() {
   const params = (

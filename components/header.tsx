@@ -1,9 +1,9 @@
 import { cn } from '@/lib/utils'
 import Image, { ImageProps } from 'next/image'
-import EnIndexHeader from '@/app/markdown/en/index/header.mdx'
-import DeIndexHeader from '@/app/markdown/de/index/header.mdx'
-import FrIndexHeader from '@/app/markdown/fr/index/header.mdx'
-import ItIndexHeader from '@/app/markdown/it/index/header.mdx'
+import EnIndexHeader from '@/app/locales/en/index/header.mdx'
+import DeIndexHeader from '@/app/locales/de/index/header.mdx'
+import FrIndexHeader from '@/app/locales/fr/index/header.mdx'
+import ItIndexHeader from '@/app/locales/it/index/header.mdx'
 
 export default function Header({
   children,
