@@ -35,6 +35,7 @@ import DeHowToItem3 from '@/app/markdown/de/index/howto3.mdx'
 import FrHowToItem3 from '@/app/markdown/fr/index/howto3.mdx'
 import ItHowToItem3 from '@/app/markdown/it/index/howto3.mdx'
 import { cn } from '@/lib/utils'
+import { getStarted, howItWorks, simplifyMeeting } from '@/app/locales/generated/locales'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -102,7 +103,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
               href="/comingsoon"
               className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 font-semibold text-white no-underline"
             >
-              Get Started
+              {getStarted(langToUse)}
             </Link>
           </div>
         </nav>
@@ -135,17 +136,14 @@ export default async function Index({ params }: { params: { lang?: string } }) {
 
           <section className="w-full bg-white">
             <div className="mx-auto max-w-6xl space-y-12 px-4 py-20 text-center text-slate-600 sm:px-0">
-              <h2 className="mb-4 text-2xl font-bold sm:text-7xl">How it works</h2>
+              <h2 className="mb-4 text-2xl font-bold sm:text-7xl">{howItWorks(langToUse)}</h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <HowToItem1 lang={langToUse} />
                 <HowToItem2 lang={langToUse} />
                 <HowToItem3 lang={langToUse} />
               </div>
-              <p className="mx-auto max-w-md text-2xl italic">
-                Heyhopping simplifies meeting up so you can get to know each other in person, right
-                away.
-              </p>
-              <GettingStarted />
+              <p className="mx-auto max-w-md text-2xl italic">{simplifyMeeting(langToUse)}</p>
+              <GettingStarted lang={langToUse} />
             </div>
           </section>
 
@@ -164,7 +162,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
             </div>
             <div className="mx-auto flex flex-col justify-center space-y-4 p-4">
               <Section2Content lang={langToUse} />
-              <GettingStarted />
+              <GettingStarted lang={langToUse} />
             </div>
           </section>
 
@@ -185,7 +183,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
                   lang={langToUse}
                   className="[&_h2]:sm:text-7x space-y-8 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-bold [&_p]:text-2xl [&_p]:sm:text-3xl"
                 />
-                <GettingStarted />
+                <GettingStarted lang={langToUse} />
               </div>
             </div>
           </section>
@@ -218,7 +216,7 @@ export default async function Index({ params }: { params: { lang?: string } }) {
               src={HeyhoppingLogo}
               className="h-32 w-32 object-contain sm:h-[200px] sm:w-[200px]"
             />
-            <GettingStarted />
+            <GettingStarted lang={langToUse} />
           </Header>
         </main>
       </div>

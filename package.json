@@ -1,8 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run generate-locales && next dev",
+    "generate-locales": "tsx app/locales/generateLocale.ts",
+    "build": "npm run generate-locales && next build",
     "start": "next start",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "db:generate": "drizzle-kit generate:pg  --config ./database/drizzle.config.ts",
