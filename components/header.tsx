@@ -1,5 +1,7 @@
 import { cn } from '@/lib/utils'
 import Image, { ImageProps } from 'next/image'
+import EnIndexHeader from '@/app/markdown/en/index/header.mdx'
+import DeIndexHeader from '@/app/markdown/de/index/header.mdx'
 
 export default function Header({
   children,
@@ -33,17 +35,11 @@ export default function Header({
   )
 }
 
-export const HeaderChild = () => {
+export const HeaderChild = ({ lang }: { lang: string }) => {
   return (
-    <div className="space-y-4 px-4 sm:px-0">
-      <h1 className="text-4xl font-extrabold sm:text-8xl">
-        Decide the venue
-        <br />
-        then pick a company
-      </h1>
-      <p className="text-md mx-auto max-w-xl text-center !leading-tight sm:text-2xl">
-        From restaurants to concerts, make every outing memorable by meeting new friends!
-      </p>
+    <div className="[&_p]:text-md space-y-4 px-4 sm:px-0 [&_h1]:text-4xl [&_h1]:font-extrabold [&_h1]:sm:text-8xl [&_p]:mx-auto [&_p]:max-w-xl [&_p]:text-center [&_p]:!leading-tight [&_p]:sm:text-2xl">
+      {lang === 'en' ? <EnIndexHeader /> : null}
+      {lang === 'de' ? <DeIndexHeader /> : null}
     </div>
   )
 }

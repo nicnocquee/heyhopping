@@ -52,7 +52,7 @@ const NotFoundClientFetch = ({
   const { data, isPending } = useQuery({
     queryKey: [country, lang, city],
     queryFn: async () => {
-      const res = await fetch(`/${country}/${lang}/${city}/api`)
+      const res = await fetch(`/${lang}/${country}/${city}/api`)
       return await res.json()
     },
   })
