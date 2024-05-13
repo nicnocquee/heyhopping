@@ -12,5 +12,7 @@
   "finish_submission_description": "Nous vous avons envoyé un e-mail avec un lien pour finaliser votre soumission. Veuillez vérifier votre boîte de réception et suivre les instructions.",
   "back_to_home": "Retour à l'accueil",
   "enter_email_city": "Entrez votre adresse e-mail ci-dessous pour recevoir un e-mail lorsque nous lancerons dans {{city}}!",
-  "your_city": "votre ville"
+  "your_city": "votre ville",
+  "email_verified": "Votre e-mail est vérifié. Merci!",
+  "post_to_x": "Poster sur X (Twitter)"
 }

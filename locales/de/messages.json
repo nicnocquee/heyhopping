@@ -12,5 +12,7 @@
   "finish_submission_description": "Wir haben dir eine E-Mail mit einem Link zum Abschluss deiner Einreichung gesendet. Bitte überprüfe dein Postfach und folge den Anweisungen.",
   "back_to_home": "Zurück zur Startseite",
   "enter_email_city": "Gib deine E-Mail-Adresse unten ein, um dich bei der Startung in {{city}} zu benachrichtigen!",
-  "your_city": "deine Stadt"
+  "your_city": "deine Stadt",
+  "email_verified": "Deine E-Mail ist verifiziert. Danke!",
+  "post_to_x": "Post auf X (Twitter)"
 }

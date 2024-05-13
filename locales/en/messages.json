@@ -12,5 +12,7 @@
   "finish_submission_description": "We've sent you an email with a link to finish your submission. Please check your inbox and follow the instructions.",
   "back_to_home": "Back to home",
   "enter_email_city": "Enter your email below to be notified when we launch in {{city}}!",
-  "your_city": "your city"
+  "your_city": "your city",
+  "email_verified": "Your e-mail is verified. Thanks!",
+  "post_to_x": "Post to X (Twitter)"
 }
