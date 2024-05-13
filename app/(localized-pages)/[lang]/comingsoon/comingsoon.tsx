@@ -16,7 +16,7 @@ import { QueryClient, QueryClientProvider, useMutation } from '@tanstack/react-q
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { env } from '@/app/env'
-import { SupportedLanguage, replaceData } from '@/locales/.generated/server'
+import { StringKeys, SupportedLanguage, replaceData } from '@/locales/.generated/server'
 import { SignUpResult } from '@/app/(main)/comingsoon/action'
 
 const queryClient = new QueryClient()
@@ -62,17 +62,18 @@ export function ComingSoon({
 }: {
   city: string
   lang?: SupportedLanguage
-  strings: {
-    comingSoon: string
-    email: string
-    submit: string
-    finishSubmission: string
-    finishSubmissionDescription: string
-    backToHome: string
-    enterEmailCity: string
-    resendConfirmation: string
-    error: string
-  }
+  strings: Pick<
+    Record<StringKeys, string>,
+    | 'error'
+    | 'resendConfirmation'
+    | 'comingSoon'
+    | 'email'
+    | 'submit'
+    | 'finishSubmission'
+    | 'finishSubmissionDescription'
+    | 'backToHome'
+    | 'enterEmailCity'
+  >
 }) {
   const { executeRecaptcha } = useReCaptcha()
 
