@@ -14,5 +14,9 @@
   "enter_email_city": "Inserisci la tua e-mail qui sotto per ricevere un'e-mail quando ci lanceremo in {{city}}!",
   "your_city": "la tua città",
   "email_verified": "Il tuo e-mail è verificato. Grazie!",
-  "post_to_x": "Invia a X (Twitter)"
+  "post_to_x": "Invia a X (Twitter)",
+  "german": "Tedesco",
+  "english": "Inglese",
+  "french": "Francese",
+  "italian": "Italiano"
 }

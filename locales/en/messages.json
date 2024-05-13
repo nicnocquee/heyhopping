@@ -14,5 +14,9 @@
   "enter_email_city": "Enter your email below to be notified when we launch in {{city}}!",
   "your_city": "your city",
   "email_verified": "Your e-mail is verified. Thanks!",
-  "post_to_x": "Post to X (Twitter)"
+  "post_to_x": "Post to X (Twitter)",
+  "german": "German",
+  "english": "English",
+  "french": "French",
+  "italian": "Italian"
 }
