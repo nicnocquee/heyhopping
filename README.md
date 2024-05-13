@@ -1,3 +1,15 @@
+# HeyHopping Website
+
+The repository for the website of the [HeyHopping](https://www.heyhopping.com) project.
+
+Getting Started:
+
+1. Clone the repo
+2. Run `bun install`
+3. Run `npm run dev`
+
+---
+
 <a href="https://demo-nextjs-with-supabase.vercel.app/">
   <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
   <h1 align="center">Next.js and Supabase Starter Kit</h1>
