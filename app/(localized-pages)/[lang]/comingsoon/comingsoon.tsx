@@ -16,7 +16,7 @@ import { QueryClient, QueryClientProvider, useMutation } from '@tanstack/react-q
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { env } from '@/app/env'
-import { StringKeys, SupportedLanguage, replaceData } from '@/locales/.generated/server'
+import { StringKeys, SupportedLanguage, interpolateTemplate } from '@/locales/.generated/server'
 import { SignUpResult } from '@/app/(main)/comingsoon/action'
 
 const queryClient = new QueryClient()
@@ -134,7 +134,9 @@ export function ComingSoon({
           <Card className="w-full max-w-sm">
             <CardHeader>
               <CardTitle className="text-2xl">{strings.comingSoon}</CardTitle>
-              <CardDescription>{replaceData(strings.enterEmailCity, { city })}</CardDescription>
+              <CardDescription>
+                {interpolateTemplate(strings.enterEmailCity, { city })}
+              </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">
