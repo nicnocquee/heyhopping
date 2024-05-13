@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { SupportedLanguage, emailVerified, postToX } from '@/locales/.generated/locales'
+import { SupportedLanguage, emailVerified, postToX } from '@/locales/.generated/server'
 
 export default function CompletePage({
   params: { lang },

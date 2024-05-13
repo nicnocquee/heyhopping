@@ -5,7 +5,7 @@ import { getCountry } from '@/utils/search-cities'
 import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
 import { CountryIndex } from '@/locales/.generated/locales-markdown'
-import { SupportedLanguage } from '@/locales/.generated/locales'
+import { SupportedLanguage } from '@/locales/.generated/server'
 
 export async function generateStaticParams() {
   const params = (

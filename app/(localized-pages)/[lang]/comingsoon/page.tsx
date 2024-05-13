@@ -13,7 +13,7 @@ import {
   finishSubmissionDescription,
   resendConfirmation,
   yourCity,
-} from '@/locales/.generated/locales'
+} from '@/locales/.generated/server'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Coming Soon',

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from './ui/button'
-import { SupportedLanguage, getStarted } from '@/locales/.generated/locales'
+import { SupportedLanguage, getStarted } from '@/locales/.generated/server'
 
 export const GettingStarted = ({ lang = 'en' }: { lang?: SupportedLanguage }) => {
   return (

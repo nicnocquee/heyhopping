@@ -16,7 +16,7 @@ import {
   getStarted,
   howItWorks,
   simplifyMeeting,
-} from '@/locales/.generated/locales'
+} from '@/locales/.generated/server'
 import {
   IndexHowto1,
   IndexHowto2,

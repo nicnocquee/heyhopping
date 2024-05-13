@@ -10,7 +10,7 @@ import {
   CountryCityIndex2,
   CountryCityIndex3,
 } from '@/locales/.generated/locales-markdown'
-import { SupportedLanguage } from '@/locales/.generated/locales'
+import { SupportedLanguage } from '@/locales/.generated/server'
 
 export async function generateStaticParams() {
   const params = (

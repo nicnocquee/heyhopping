@@ -1,4 +1,4 @@
-import { SupportedLanguage } from '@/locales/.generated/locales'
+import { SupportedLanguage } from '@/locales/.generated/server'
 import { IndexHeader } from '@/locales/.generated/locales-markdown'
 import { cn } from '@/lib/utils'
 import Image, { ImageProps } from 'next/image'

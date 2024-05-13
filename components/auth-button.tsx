@@ -1,4 +1,4 @@
-import { SupportedLanguage } from '@/locales/.generated/locales'
+import { SupportedLanguage } from '@/locales/.generated/server'
 import { createClient } from '@/utils/supabase/server'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'

@@ -16,7 +16,7 @@ import { QueryClient, QueryClientProvider, useMutation } from '@tanstack/react-q
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { env } from '@/app/env'
-import { SupportedLanguage, replaceData } from '@/locales/.generated/locales'
+import { SupportedLanguage, replaceData } from '@/locales/.generated/server'
 import { SignUpResult } from '@/app/(main)/comingsoon/action'
 
 const queryClient = new QueryClient()
