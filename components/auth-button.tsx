@@ -1,8 +1,9 @@
+import { SupportedLanguage } from '@/locales/.generated/server'
 import { createClient } from '@/utils/supabase/server'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
-export default async function AuthButton() {
+export default async function AuthButton({ lang }: { lang?: SupportedLanguage }) {
   const supabase = createClient()
 
   const {
@@ -28,7 +29,7 @@ export default async function AuthButton() {
     </div>
   ) : (
     <Link
-      href="/comingsoon"
+      href={`/${lang}/comingsoon`}
       className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 no-underline"
     >
       Get Started

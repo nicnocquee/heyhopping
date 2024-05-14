@@ -1,0 +1,22 @@
+{
+  "get_started": "Commencer",
+  "simplify_meeting": "Heyhopping simplifie les rencontres pour vous permettre de vous connaître en personne, tout de suite.",
+  "how_it_works": "Comment ça fonctionne",
+  "meet_up": "Rencontrer",
+  "error": "Erreur",
+  "resend_confirmation": "Renvoyer la confirmation",
+  "coming_soon": "Bientôt disponible",
+  "email": "E-mail",
+  "submit": "Soumettre",
+  "finish_submission": "Finalisez votre soumission",
+  "finish_submission_description": "Nous vous avons envoyé un e-mail avec un lien pour finaliser votre soumission. Veuillez vérifier votre boîte de réception et suivre les instructions.",
+  "back_to_home": "Retour à l'accueil",
+  "enter_email_city": "Entrez votre adresse e-mail ci-dessous pour recevoir un e-mail lorsque nous lancerons dans {{city}}!",
+  "your_city": "votre ville",
+  "email_verified": "Votre e-mail est vérifié. Merci!",
+  "post_to_x": "Poster sur X (Twitter)",
+  "german": "Allemand",
+  "english": "Anglais",
+  "french": "Français",
+  "italian": "Italien"
+}
