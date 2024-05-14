@@ -51,6 +51,7 @@ const submit = async ({
       resend,
       email,
       recaptchaToken,
+      lang,
     }),
   })
   const result = (await response.json()) as SignUpResult
