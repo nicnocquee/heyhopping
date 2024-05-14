@@ -10,9 +10,13 @@ export type SignUpResult = {
   data: string | null
 }
 
-export const signUp = async (formData: { email: string; recaptchaToken: string }) => {
+export const signUp = async (formData: {
+  email: string
+  recaptchaToken: string
+  lang?: string
+}) => {
   const origin = headers().get('origin')
-  const { email, recaptchaToken } = formData
+  const { email, recaptchaToken, lang = 'en' } = formData
   const password = Math.random().toString(36).slice(-8)
 
   if (!recaptchaToken) {
@@ -45,7 +49,7 @@ export const signUp = async (formData: { email: string; recaptchaToken: string }
     email,
     password,
     options: {
-      emailRedirectTo: `${origin}/comingsoon/complete`,
+      emailRedirectTo: `${origin}/${lang}/comingsoon/complete`,
     },
   })
 

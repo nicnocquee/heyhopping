@@ -35,10 +35,12 @@ const submit = async ({
   email,
   recaptchaToken,
   resend,
+  lang,
 }: {
   email: string
   recaptchaToken: string
   resend: boolean
+  lang?: SupportedLanguage
 }) => {
   const response = await fetch(`/comingsoon/submit`, {
     method: 'POST',
@@ -49,6 +51,7 @@ const submit = async ({
       resend,
       email,
       recaptchaToken,
+      lang,
     }),
   })
   const result = (await response.json()) as SignUpResult
@@ -58,6 +61,7 @@ const submit = async ({
 
 export function ComingSoon({
   strings,
+  lang,
 }: {
   lang?: SupportedLanguage
   strings: Pick<
@@ -105,6 +109,7 @@ export function ComingSoon({
                         resend: true,
                         email: error.email,
                         recaptchaToken: token,
+                        lang,
                       })
                     }}
                   >
@@ -127,6 +132,7 @@ export function ComingSoon({
               resend: false,
               email: formData.get('email') as string,
               recaptchaToken: token,
+              lang,
             })
           }}
         >
