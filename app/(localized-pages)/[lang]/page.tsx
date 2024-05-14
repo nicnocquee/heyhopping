@@ -25,6 +25,7 @@ import {
   IndexSection2,
   IndexSection3,
 } from '@/locales/.generated/locales-markdown'
+import HeaderNav from '@/components/header-nav'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Date, Chat, Meet New People & Mingle Without Pressure',
@@ -80,24 +81,14 @@ export function generateStaticParams() {
 }
 
 export default async function Index({
-  params: { lang = 'en' },
+  params: { lang = 'en', country = 'default' },
 }: {
-  params: { lang?: SupportedLanguage }
+  params: { lang?: SupportedLanguage; country?: string }
 }) {
   return (
     <div className="flex w-full flex-1 flex-col items-center">
-      <Header image={Hero} imageContainerClassName="h-[300px] sm:h-2/3">
-        <nav className="absolute top-0 z-10 flex h-16 w-full justify-center border-b border-b-foreground/10 bg-transparent">
-          <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
-            <Image alt="Heyhopping" src={HeyhoppingLogo} width={40} height={40} />
-            <Link
-              href={`/${lang}/comingsoon`}
-              className="bg-btn-background hover:bg-btn-background-hover flex rounded-md px-3 py-2 font-semibold text-white no-underline"
-            >
-              {getStarted(lang)}
-            </Link>
-          </div>
-        </nav>
+      <Header image={Hero} imageContainerClassName="h-screen sm:h-2/3">
+        <HeaderNav lang={lang} country={country} />
         <HeaderChild lang={lang} />
       </Header>
 
@@ -215,15 +206,13 @@ export default async function Index({
   )
 }
 
-const Section1Content = ({ lang }: { lang: string }) => {
-  return (
-    <div className="space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl">
-      <IndexSection1 lang={lang as SupportedLanguage} />
-    </div>
-  )
-}
-
-const Section2Content = ({ lang, className }: { lang: string; className?: string }) => {
+const SectionContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) => {
   return (
     <div
       className={cn(
@@ -231,16 +220,32 @@ const Section2Content = ({ lang, className }: { lang: string; className?: string
         className
       )}
     >
-      <IndexSection2 lang={lang as SupportedLanguage} />
+      {children}
     </div>
+  )
+}
+
+const Section1Content = ({ lang }: { lang: string }) => {
+  return (
+    <SectionContainer>
+      <IndexSection1 lang={lang as SupportedLanguage} />
+    </SectionContainer>
+  )
+}
+
+const Section2Content = ({ lang, className }: { lang: string; className?: string }) => {
+  return (
+    <SectionContainer className={className}>
+      <IndexSection2 lang={lang as SupportedLanguage} />
+    </SectionContainer>
   )
 }
 
 const Section3Content = ({ lang }: { lang: string }) => {
   return (
-    <div className="space-y-4 [&_h2]:mb-4 [&_h2]:text-5xl [&_h2]:font-bold [&_h2]:sm:text-7xl [&_p]:text-lg [&_p]:sm:text-xl">
+    <SectionContainer>
       <IndexSection3 lang={lang as SupportedLanguage} />
-    </div>
+    </SectionContainer>
   )
 }
 

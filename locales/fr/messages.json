@@ -18,5 +18,9 @@
   "german": "Allemand",
   "english": "Anglais",
   "french": "Français",
-  "italian": "Italien"
+  "italian": "Italien",
+  "en": "English",
+  "de": "Deutsch",
+  "fr": "Français",
+  "it": "Italiano"
 }
