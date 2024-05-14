@@ -13,7 +13,7 @@ export default function HeaderNav({ lang, country }: { lang: SupportedLanguage; 
   )
 }
 
-export function HeaderNavContent({ lang, country }: { lang: SupportedLanguage; country: string }) {
+export function HeaderNavContent({ lang, country }: { lang: SupportedLanguage; country?: string }) {
   return (
     <div className="flex w-full max-w-6xl items-center justify-between p-3 text-sm">
       <Image alt="Heyhopping" src={HeyhoppingLogo} width={40} height={40} />

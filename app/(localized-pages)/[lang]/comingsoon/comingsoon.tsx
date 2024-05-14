@@ -16,7 +16,7 @@ import { QueryClient, QueryClientProvider, useMutation } from '@tanstack/react-q
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { env } from '@/app/env'
-import { StringKeys, SupportedLanguage, interpolateTemplate } from '@/locales/.generated/server'
+import { StringKeys, SupportedLanguage } from '@/locales/.generated/server'
 import { SignUpResult } from '@/app/(main)/comingsoon/action'
 
 const queryClient = new QueryClient()
@@ -57,10 +57,8 @@ const submit = async ({
 }
 
 export function ComingSoon({
-  city,
   strings,
 }: {
-  city: string
   lang?: SupportedLanguage
   strings: Pick<
     Record<StringKeys, string>,
@@ -73,6 +71,7 @@ export function ComingSoon({
     | 'finishSubmissionDescription'
     | 'backToHome'
     | 'enterEmailCity'
+    | 'yourCity'
   >
 }) {
   const { executeRecaptcha } = useReCaptcha()
@@ -86,7 +85,7 @@ export function ComingSoon({
   const error = isError ? data?.error : undefined
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center space-y-4 ">
+    <div className="flex w-screen flex-col items-center justify-center space-y-4 p-4">
       {isError && error && (
         <div className="w-full max-w-sm">
           <Alert variant="destructive">
@@ -134,9 +133,7 @@ export function ComingSoon({
           <Card className="w-full max-w-sm">
             <CardHeader>
               <CardTitle className="text-2xl">{strings.comingSoon}</CardTitle>
-              <CardDescription>
-                {interpolateTemplate(strings.enterEmailCity, { city })}
-              </CardDescription>
+              <CardDescription>{strings.enterEmailCity}</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">

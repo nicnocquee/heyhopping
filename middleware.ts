@@ -1,5 +1,6 @@
 import { type NextRequest } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
+import { supportedCountries } from './app/(localized-pages)/[lang]/[country]/[city]/helpers'
 
 export async function middleware(request: NextRequest) {
   const response = await updateSession(request)
@@ -8,6 +9,20 @@ export async function middleware(request: NextRequest) {
   const country = request.geo?.country || ''
   response.cookies.set('city', city)
   response.cookies.set('country', country)
+
+  const url = new URL(request.url)
+  const pathname = url.pathname
+
+  if (pathname === '/') {
+    const supportedCountry = supportedCountries.find(
+      (c) => c.code.toLowerCase() === country.toLowerCase()
+    )
+    if (supportedCountry) {
+      const lang = supportedCountry.languages[0]
+
+      return Response.redirect(new URL(`/${lang}`, request.url), 301)
+    }
+  }
 
   return response
 }

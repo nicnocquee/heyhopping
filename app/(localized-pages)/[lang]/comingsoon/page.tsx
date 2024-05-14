@@ -14,6 +14,7 @@ import {
   resendConfirmation,
   yourCity,
 } from '@/locales/.generated/server'
+import { HeaderNavContent } from '@/components/header-nav'
 
 export const metadata: Metadata = {
   title: 'HeyHopping | Coming Soon',
@@ -36,23 +37,29 @@ export default function ComingSoonPage({
 }: {
   params: { lang: SupportedLanguage }
 }) {
-  const city = cookies().get('city')?.value || yourCity(lang)
+  const city = cookies().get('city')?.value
+  const country = cookies().get('country')?.value
 
   return (
-    <ComingSoon
-      lang={lang}
-      city={city}
-      strings={{
-        comingSoon: comingSoon(lang),
-        email: email(lang),
-        submit: submitMessage(lang),
-        finishSubmission: finishSubmission(lang),
-        finishSubmissionDescription: finishSubmissionDescription(lang),
-        backToHome: backToHome(lang),
-        enterEmailCity: enterEmailCity(lang, { city }),
-        resendConfirmation: resendConfirmation(lang),
-        error: errorMessage(lang),
-      }}
-    />
+    <div>
+      <div className="flex w-full flex-col text-foreground [&_a]:text-foreground [&_button]:text-foreground [&_p]:text-foreground">
+        <HeaderNavContent lang={lang} country={country} />
+      </div>
+      <ComingSoon
+        lang={lang}
+        strings={{
+          yourCity: yourCity(lang),
+          comingSoon: comingSoon(lang),
+          email: email(lang),
+          submit: submitMessage(lang),
+          finishSubmission: finishSubmission(lang),
+          finishSubmissionDescription: finishSubmissionDescription(lang),
+          backToHome: backToHome(lang),
+          enterEmailCity: enterEmailCity(lang, { city: city || yourCity(lang) }),
+          resendConfirmation: resendConfirmation(lang),
+          error: errorMessage(lang),
+        }}
+      />
+    </div>
   )
 }

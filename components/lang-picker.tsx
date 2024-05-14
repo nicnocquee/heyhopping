@@ -26,7 +26,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 
-export default function LangPicker({ lang, country }: { lang: string; country: string }) {
+export default function LangPicker({ lang, country }: { lang: string; country?: string }) {
   const pathname = usePathname()
   const router = useRouter()
   const strings = useStrings(['de', 'en', 'fr', 'it', 'changeLanguage'])
