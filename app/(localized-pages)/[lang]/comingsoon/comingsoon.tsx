@@ -131,6 +131,7 @@ export function ComingSoon({
               resend: false,
               email: formData.get('email') as string,
               recaptchaToken: token,
+              lang,
             })
           }}
         >
