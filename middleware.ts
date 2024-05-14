@@ -2,10 +2,13 @@ import { type NextRequest } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
-  const city = request.geo?.city || ''
-
   const response = await updateSession(request)
+
+  const city = request.geo?.city || ''
+  const country = request.geo?.country || ''
   response.cookies.set('city', city)
+  response.cookies.set('country', country)
+
   return response
 }
 
