@@ -18,5 +18,10 @@
   "german": "Deutsch",
   "english": "Englisch",
   "french": "Französisch",
-  "italian": "Italienisch"
+  "italian": "Italienisch",
+  "change_language": "Sprache ändern",
+  "en": "English",
+  "de": "Deutsch",
+  "fr": "Français",
+  "it": "Italiano"
 }

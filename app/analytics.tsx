@@ -53,7 +53,7 @@ export function CookieBanner() {
   return (
     <div>
       {consentGiven === 'undecided' && (
-        <div className="fixed bottom-0 w-full space-y-4 border-t border-t-foreground/10 bg-background p-4 text-center text-sm">
+        <div className="fixed bottom-0 z-50 w-full space-y-4 border-t border-t-foreground/10 bg-background p-4 text-center text-sm">
           <p>
             Hey, I use cookies to see how you use the website and make it better. Can you cool with
             that and let me use 'em?

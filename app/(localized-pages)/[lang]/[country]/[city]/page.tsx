@@ -1,10 +1,13 @@
 import { getCitiesByCountry } from '@/utils/search-cities'
-import { supportedCountries, encodeUmlauts, findSupportedCountry } from './helpers'
-import Image from 'next/image'
-import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
+import {
+  supportedCountries,
+  encodeUmlauts,
+  findSupportedCountry,
+  decodeUmlauts,
+  capitalize,
+} from './helpers'
 import { GettingStarted } from '@/components/getting-started'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import {
   CountryCityIndex1,
   CountryCityIndex2,
@@ -99,7 +102,7 @@ export const dynamicParams = false
 export default function Page({
   params,
 }: {
-  params: { country: string; lang: string; city: string }
+  params: { country: string; lang: SupportedLanguage; city: string }
 }) {
   const { country, lang, city } = params
   const countryName = findSupportedCountry(country)?.name
@@ -115,18 +118,15 @@ export default function Page({
   ])!
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center space-y-8 p-4 py-16">
-        <Link href="/">
-          <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
-        </Link>
-
-        <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
-          {CountryCityToUse({ lang: lang as SupportedLanguage, city })}
-        </div>
-        <GettingStarted />
+    <>
+      <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
+        {CountryCityToUse({
+          lang: lang as SupportedLanguage,
+          city: capitalize(decodeUmlauts(city)),
+        })}
       </div>
-    </div>
+      <GettingStarted lang={lang} />
+    </>
   )
 }
 

@@ -6,6 +6,12 @@ export const supportedCountries = [
   },
 ]
 
+export const defaultCountry = {
+  code: 'default',
+  name: 'Default',
+  languages: ['de', 'fr', 'it', 'en'],
+}
+
 export const findSupportedCountry = (countryCode: string) =>
   supportedCountries.find((country) => country.code.toLowerCase() === countryCode.toLowerCase())
 

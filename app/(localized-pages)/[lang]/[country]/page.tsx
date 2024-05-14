@@ -6,6 +6,7 @@ import Image from 'next/image'
 import HeyhoppingLogo from '@/public/heyhopping-logo.webp'
 import { CountryIndex } from '@/locales/.generated/locales-markdown'
 import { SupportedLanguage } from '@/locales/.generated/server'
+import { HeaderNavContent } from '@/components/header-nav'
 
 export async function generateStaticParams() {
   const params = (
@@ -25,20 +26,16 @@ export async function generateStaticParams() {
 export default async function Page({
   params: { country, lang },
 }: {
-  params: { country: string; lang: string }
+  params: { country: string; lang: SupportedLanguage }
 }) {
   const data = await generateStaticParamsCity()
   const theCountry = await getCountry(country)
   return (
-    <div className="flex flex-col items-center justify-center space-y-8 p-2 text-foreground sm:p-8">
-      <Link href="/">
-        <Image alt="Heyhopping" src={HeyhoppingLogo} width={200} height={200} />
-      </Link>
-
+    <>
       <div className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg dark:prose-headings:text-white">
         <CountryIndex country={theCountry.name} lang={lang as SupportedLanguage} />
       </div>
-      <div className="grid grid-cols-1 gap-6 p-4 py-8 text-foreground sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-6 p-4 py-8 text-foreground sm:grid-cols-4">
         {data
           .filter((page) => page.lang.toLowerCase() === lang.toLowerCase())
           .sort((a, b) => a.city.localeCompare(b.city))
@@ -55,6 +52,6 @@ export default async function Page({
             )
           })}
       </div>
-    </div>
+    </>
   )
 }
