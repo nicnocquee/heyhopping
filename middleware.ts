@@ -29,6 +29,13 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    {
+      source: '/',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' },
+      ],
+    },
     /*
      * Match all request paths except for the ones starting with:
      * - api (API routes)
