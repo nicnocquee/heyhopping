@@ -42,7 +42,7 @@ export default function ComingSoonPage({
 
   return (
     <div>
-      <div className="flex w-full flex-col text-foreground [&_a]:text-foreground [&_button]:text-foreground [&_p]:text-foreground">
+      <div className="flex w-full flex-col items-center text-foreground [&_a]:text-foreground [&_button]:text-foreground [&_p]:text-foreground">
         <HeaderNavContent lang={lang} country={country} />
       </div>
       <ComingSoon
