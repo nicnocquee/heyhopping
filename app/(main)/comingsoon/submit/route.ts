@@ -15,7 +15,7 @@ export const POST = async (request: Request) => {
       type: 'signup',
       email: formData.email,
       options: {
-        emailRedirectTo: `${origin}/comingsoon/complete`,
+        emailRedirectTo: `${origin}/${formData.lang || 'en'}/comingsoon/complete`,
       },
     })
   } else {
